@@ -4,15 +4,21 @@
 }
 .logo {
   height: 80px;
-  width: 160px;
+  width: 200px;
   border-radius: 3px;
 }
 .nav-item{
   font-size: 20px;
   border-radius: 3px;
   font-weight: bold;
+  text-decoration: 2px;
 }
 .navbar-brand{
+  font-size: 25px;
+  margin-top: 2px;
+  padding-bottom: 0;
+}
+.nav-item dropdown{
   font-size: 25px;
   margin-top: 2px;
   padding-bottom: 0;
