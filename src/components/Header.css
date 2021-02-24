@@ -1,16 +1,21 @@
-.header{
-  size: 100%;
-  background-color: rgb(243, 220, 198)!important;
-}
+
 .navbar-light {
-  background-color: rgb(248, 245, 242)!important;
+  background-color: rgb(104, 235, 240)!important;
 }
 .logo {
-  height: 50px;
-  width: 140px;
+  height: 80px;
+  width: 160px;
   border-radius: 3px;
 }
 .nav-item{
   font-size: 20px;
   border-radius: 3px;
+  font-weight: bold;
 }
+.navbar-brand{
+  font-size: 25px;
+  margin-top: 2px;
+  padding-bottom: 0;
+}
+
+
