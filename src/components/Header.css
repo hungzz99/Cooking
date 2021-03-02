@@ -11,7 +11,7 @@
   font-size: 20px;
   border-radius: 3px;
   font-weight: bold;
-  text-decoration: 2px;
+  text-decoration: underline;
 }
 .navbar-brand{
   font-size: 25px;

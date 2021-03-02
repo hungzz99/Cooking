@@ -22,11 +22,21 @@
 .media-body span {
     font-size: 100px;
     color:white;
-    margin-left: 3rem;
+}
+.media-body p {
+    margin-left: 1rem;
 }
 .highlight{
     background-color: red;
 }
-.media {
-    border-radius: 10px;
+.card-img-top{
+    width: 100%!important;
+    height: 16rem!important;
+    border-radius: none!important;
 }
+.card {
+    width: 18rem!important;
+    height: 20rem!important;
+    border: none!important;
+}
+
