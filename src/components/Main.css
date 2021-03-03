@@ -31,12 +31,24 @@
 }
 .card-img-top{
     width: 100%!important;
-    height: 16rem!important;
-    border-radius: none!important;
+    height: 20rem!important;
+    display: block!important;
 }
 .card {
-    width: 18rem!important;
-    height: 20rem!important;
+    width: 20rem!important;
+    height: 25rem!important;
     border: none!important;
+    position: relative;
 }
-
+.row{
+    width: 106rem!important; 
+    /* fix with size */
+    height: inherit;
+}
+.a.col {
+    width: 50px!important;
+} 
+.card-title{
+    color:  black;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
