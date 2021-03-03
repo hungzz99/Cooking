@@ -1,0 +1,14 @@
+.login {
+    margin-top: 5rem;
+    text-align: center;
+    width: 100%;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+.box-sizing{
+    width: 38rem;
+    height: 40rem;
+    border: 2px solid black;
+    border-radius: 3%;
+    background-color: rgb(217, 223, 223)!important;
+}

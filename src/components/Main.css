@@ -1,5 +1,5 @@
 .Main {
-    margin-top: 4em;
+    margin-top: 10rem;
     align-items: center;
     margin-right: 10%;
     margin-left: 10%;
@@ -18,6 +18,12 @@
     font-size: 30px;
     float: left!important;
     margin-top: 3%;
+}
+.media-title {
+    margin-top: 3rem;
+}
+.media-title-h3 {
+    margin-top: 1rem!important;
 }
 .media-body span {
     font-size: 100px;
@@ -41,7 +47,7 @@
     position: relative;
 }
 .row{
-    width: 106rem!important; 
+    width: 96rem!important; 
     /* fix with size */
     height: inherit;
 }

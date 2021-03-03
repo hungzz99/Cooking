@@ -1,11 +1,15 @@
-
-.navbar-light {
+.header {
+  position: relative;
+  width: 100%;
+  top: 0;
+  text-align: center;
   background-color: rgb(104, 235, 240)!important;
 }
 .logo {
   height: 80px;
   width: 200px;
   border-radius: 3px;
+  
 }
 .nav-item{
   font-size: 20px;

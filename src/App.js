@@ -8,7 +8,6 @@ import AboutUs from './components/AboutUs';
 import Login from './components/Login';
 function App() {
   return (
-    <>
     <Router>
       <Switch>
         <Route  path="/" exact component={Main} />
@@ -19,7 +18,6 @@ function App() {
         <Route  path="/login" component={Login} />
       </Switch>
     </Router>
-    </>
   );
 }
 export default App;

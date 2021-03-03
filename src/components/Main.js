@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header';
+import Footer from './Footer';
 import maintiitle from '../Pictures/maintittle.png';
 import chicken from '../Pictures/ship3.jpg';
 import './Main.css';
@@ -27,7 +28,7 @@ class Main extends Component {
                     </div>
                     <br />
                     <div className="media-title" flex-direction="row">
-                        <h3> All Recipes</h3>
+                        <h3 className="media-title-h3"> All Recipes</h3>
                         <div>
                             <div className="card">
                                 <div className="row">
@@ -55,22 +56,6 @@ class Main extends Component {
                                             <h5 className="card-title" align="center">Chicken Dry</h5>
                                         </div>
                                     </a>
-                                    {/* <div className="container">
-                                        <img src={chicken}  className="image" />
-                                        <div className="overlay">My Name is John</div>
-                                    </div>
-                                    <div className="container">
-                                        <img src={chicken}  className="image" />
-                                        <div className="overlay">My Name is John</div>
-                                    </div>
-                                    <div className="container">
-                                        <img src={chicken}  className="image" />
-                                        <div className="overlay">My Name is John</div>
-                                    </div>
-                                    <div className="container">
-                                        <img src={chicken}  className="image" />
-                                        <div className="overlay">My Name is John</div>
-                                    </div> */}
                                 </div>
                             </div>
                             <div className="card">
@@ -99,29 +84,15 @@ class Main extends Component {
                                             <h5 className="card-title" align="center">Chicken Dry</h5>
                                         </div>
                                     </a>
-                                    {/* <div className="container">
-                                        <img src={chicken}  className="image" />
-                                        <div className="overlay">My Name is John</div>
-                                    </div>
-                                    <div className="container">
-                                        <img src={chicken}  className="image" />
-                                        <div className="overlay">My Name is John</div>
-                                    </div>
-                                    <div className="container">
-                                        <img src={chicken}  className="image" />
-                                        <div className="overlay">My Name is John</div>
-                                    </div>
-                                    <div className="container">
-                                        <img src={chicken}  className="image" />
-                                        <div className="overlay">My Name is John</div>
-                                    </div> */}
                                 </div>
+                            </div>
+                            <div align="center" backgroundColor="red">
+                                <button> Show More</button>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
+                <Footer/>
             </div>
 
         );

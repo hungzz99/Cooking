@@ -1,0 +1,35 @@
+.footer {
+    background-color: rgb(104, 235, 240)!important;
+    bottom: 0;
+    width: 100%;
+    height: 300px;
+    color: black;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.contact{
+    text-align: left!important;
+    margin-left: 98rem;
+    margin-top: 5rem;
+    position: absolute!important;
+}
+.contact2 {
+    text-align: center!important;
+    margin-left: 52rem;
+    margin-top: 5rem;
+    position: absolute!important;
+}
+.about-contact {
+    width: 35rem;
+    text-align: left!important;
+    margin-left: 3rem;
+    margin-top: 3rem;
+    position: absolute!important;
+}
+.reserved {
+    text-align: left!important;
+    margin-left: 48rem;
+    margin-top: 17rem!important;
+    position: absolute!important;
+
+}
