@@ -8,13 +8,12 @@ class Login extends Component {
                 <Header />
                 <div className="login">
                     <div className="box-sizing">
+                        <h1>Login </h1>
                         <form className="px-4 py-3">
-                            <div className="form-group-inline">
-                                <label for="exampleDropdownFormEmail1">Email address</label>
-                                <input type="email" className="form-control" placeholder="UserName"/>
+                            <div className="form-group">
+                                <input type="user" className="form-control" placeholder="Username -or- Email Address" />
                             </div>
                             <div className="form-group">
-                                <label for="exampleDropdownFormPassword1">Password</label>
                                 <input type="password" className="form-control" id="exampleDropdownFormPassword1" placeholder="Password" />
                             </div>
                             <div className="form-check">
@@ -23,11 +22,18 @@ class Login extends Component {
                                     Remember me
                                 </label>
                             </div>
-                            <button type="submit" className="btn btn-primary">Sign in</button>
+                            <br />
+                            <button type="submit" className="btn btn-primary" >Sign in</button>
                         </form>
-                        <div className="dropdown-divider"></div>
-                        <a className="dropdown-item" href="#" text-decoration="underline">If you don't have account, Sign up</a>
-                        <a className="dropdown-item" href="#">Forgot password?</a>
+                        <div className="a" >
+                            <a href="/sign-up">If you don't have account, Sign up here!</a>
+                            <br />
+                            <a href="#">Forgot password?</a>
+                        </div>
+                        <form className="px-4 py-3" action="/login">
+                            <button className="btn btn-success my-2 my-sm-0" type="submit">Login With Google Account </button>
+                            <br/>
+                        </form>
                     </div>
                 </div>
             </div>
