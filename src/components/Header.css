@@ -4,6 +4,7 @@
   top: 0;
   text-align: center;
   background-color: rgb(104, 235, 240)!important;
+  border-radius: 3px;
 }
 .logo {
   height: 80px;

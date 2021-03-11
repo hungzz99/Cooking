@@ -1,5 +1,4 @@
 .Main {
-    margin-top: 10rem;
     align-items: center;
     margin-right: 10%;
     margin-left: 10%;
@@ -7,33 +6,28 @@
 .Main img {
     transform-origin: 50% 50%;
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid;
     width: 40%;
 }
 .media-body {
-    font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    font-family:inherit;
     position: sticky;
-    color: black;
-    font-size: 30px;
-    float: left!important;
-    margin-top: 3%;
+    text-align: right;
+    color: red!important;
+    margin-right: 1rem;
+    font-size: 50px!important;
+}
+.highlight{
+    color: white !important;
+    background-color:red !important;
+    font-size:50px!important;
 }
 .media-title {
     margin-top: 3rem;
 }
 .media-title-h3 {
     margin-top: 1rem!important;
-}
-.media-body span {
-    font-size: 100px;
-    color:white;
-}
-.media-body p {
-    margin-left: 1rem;
-}
-.highlight{
-    background-color: red;
 }
 .card-img-top{
     width: 100%!important;
@@ -56,5 +50,22 @@
 } 
 .card-title{
     color:  black;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:inherit;
+}
+.button-show {
+    border: solid 1px;
+    border-radius: 3px;
+    background-color: #e40754;
+    border-color: #e40754;
+    font-size: 1rem;
+    color: white;
+    font-family: inherit;
+
+}
+.video {
+    width: 500px;
+    height: 350px;
+    position: relative;
+    border: solid 1px;
+    margin-right: 1rem;
 }

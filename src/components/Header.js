@@ -29,6 +29,9 @@ class Header extends Component {
                             <li className="nav-item active">
                                 <a className="nav-link disabled" href="/about-us">About Us</a>
                             </li>
+                            <li className="nav-item active">
+                                <a className="nav-link disabled" href="/contact-us">Contact Us</a>
+                            </li>
                         </ul>
                         <form className="form-inline my-2 my-lg-0" action="/login">
                             <input className="form-control mr-sm-2" type="search" placeholder="Search Cookies..." aria-label="Search" icon="fa fa-icon-search"/>

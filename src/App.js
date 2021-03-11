@@ -5,6 +5,7 @@ import HealthyRecipes from './components/HealthyRecipes';
 import EasyRecipes from './components/EasyRecipes';
 import DailyRecipes from './components/DailyRecipes';
 import AboutUs from './components/AboutUs';
+import ContactUs from './components/ContactUs';
 import Login from './components/Login';
 import Signup from './components/Signup';
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route  path="/easy-recipes" component={EasyRecipes} />
         <Route  path="/daily-recipes" component={DailyRecipes} />
         <Route  path="/about-us" component={AboutUs} />
+        <Route  path="/contact-us" component={ContactUs} />
         <Route  path="/login" component={Login} />
         <Route  path="/sign-up" component={Signup} />
       </Switch>

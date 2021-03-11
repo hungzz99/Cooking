@@ -1,17 +1,33 @@
 import React, { Component } from 'react';
 import './HealthyRecipes.css';
 import Header from './Header';
+import Footer from './Footer';
 import chicken from '../Pictures/chicken.jpg';
 import pizza from '../Pictures/pizza.jpg';
 import spaghetti from '../Pictures/spagheti.jpg';
+import HealthyVideo from '../Video/HealthyVideo.mp4';
 class HealthyRecipes extends Component {
     render() {
         return (
             <div>
                 <Header />
+                <br/>
                 <div className="healthy-recipes">
+                    <div className="media">
+                        <div className="media-body">
+                            <p bg="red">What We're Loving Now</p>
+                            <p>Cookies Is Seasoned With Love</p>
+                            <span>
+                                <p className="highlight">You Can Do Everything with Cookies Recipes</p>
+                            </span>
+                        </div>
+                        <div>
+                            <iframe className="video" src={HealthyVideo}></iframe>
+                        </div>
+                    </div>
                     <div className="media-title" flex-direction="row">
-                        <h3 className="media-title-h3"> All Recipes</h3>
+                        <h3 className="media-title-h3"> Healthy Recipes</h3>
+                        <br />
                         <div>
                             <div className="card">
                                 <div className="row">
@@ -69,13 +85,14 @@ class HealthyRecipes extends Component {
                                     </a>
                                 </div>
                             </div>
-                            <div align="center" backgroundColor="red">
-                                <button> Show More</button>
+                            <div align="center">
+                                <button className="button-show"> Show more</button>
                             </div>
                         </div>
                     </div>
-
                 </div>
+                <br/>
+                <Footer />
             </div>
         );
     }
