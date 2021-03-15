@@ -20,7 +20,7 @@ class Footer extends Component {
                 <div className="contact2">
                     <form className="form-inline my-2 my-lg-0" action="/sign-up" >
                         <input className="form-control mr-sm-2" type="search" placeholder="Your Email Address..." aria-label="Search" icon="fa fa-icon-search"/>
-                        <button className="btn btn-warning my-2 my-sm-0" type="submit" onClick={Signup}  >Sign Up</button>
+                        <button className="btn btn-success my-2 my-sm-0" type="submit" onClick={Signup}  >Sign Up</button>
                     </form>
                 </div>
                 <div className="reserved">

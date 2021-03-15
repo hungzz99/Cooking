@@ -1,0 +1,27 @@
+.back-ground {
+    background-color: white;
+}
+.details {
+    margin-top: 0rem;
+    display: flex;
+    justify-content: center;
+    
+}
+.box-sizing{
+    width: 60rem;
+    height: auto!important;
+    text-align: center;
+    align-items: center!important;
+    /* border: 1px solid black; */
+    border-radius: 1rem;
+    background-color: rgb(252, 240, 224)!important;
+}
+.image-details img {
+    width: 30rem;
+    height: 25rem;
+    border-radius: 3px;
+}
+.content-details {
+    text-align: left;
+    font-size: 20px;
+}

@@ -9,7 +9,7 @@ import HealthyVideo from '../Video/HealthyVideo.mp4';
 class HealthyRecipes extends Component {
     render() {
         return (
-            <div>
+            <div className="back-ground2">
                 <Header />
                 <br/>
                 <div className="healthy-recipes">

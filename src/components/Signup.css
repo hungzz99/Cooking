@@ -1,17 +1,16 @@
 .sign-up {
-    margin-top: 5rem;
-    /* text-align: center; */
-    width: 100%;
-    margin-left: 35%;
-    margin-right: 35%;
+    margin-top: 2rem;
+    justify-content: center;
+    display: flex;
 }
 .box-sizing{
-    width: 38rem;
-    height: 30rem;
+    align-items: center!important;
+    width: 40rem!important;
+    height: auto!important;
     text-align: center;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 3%;
-    background-color: rgb(245, 243, 243)!important;
+    background-color: rgb(252, 240, 224)!important;
 }
 .form-check {
     text-align: center!important;

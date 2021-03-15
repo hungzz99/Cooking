@@ -6,7 +6,7 @@ class Signup extends Component {
         return (
             <div>
                 <Header />
-                <div className="sign-up">
+                <div className="sign-up" >
                     <div className="box-sizing">
                         <h1>Sign Up </h1>
                         <form className="px-4 py-3">

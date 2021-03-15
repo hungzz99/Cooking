@@ -9,7 +9,7 @@ import EasyVideo from '../Video/EasyVideo.mp4';
 class EasyRecipes extends Component {
     render() {
         return (
-            <div>
+            <div className="back-ground3">
                 <Header />
                 <br />
                     <div className="easy-recipes">
@@ -26,7 +26,7 @@ class EasyRecipes extends Component {
                             </div>
                         </div>
                         <div className="media-title" flex-direction="row">
-                            <h3 className="media-title-h3"> Healthy Recipes</h3>
+                            <h3 className="media-title-h3"> Easy Recipes</h3>
                             <br />
                             <div>
                                 <div className="card">

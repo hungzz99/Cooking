@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import './Login.css';
 import Header from './Header';
+import './Login.css';
 class Login extends Component {
     render() {
         return (
             <div>
                 <Header />
                 <div className="login">
-                    <div className="box-sizing">
+                    <div className="box-sizing" >
                         <h1>Login </h1>
                         <form className="px-4 py-3">
                             <div className="form-group">
@@ -32,7 +32,7 @@ class Login extends Component {
                         </div>
                         <form className="px-4 py-3" action="/login">
                             <button className="btn btn-success my-2 my-sm-0" type="submit">Login With Google Account </button>
-                            <br/>
+                            <br />
                         </form>
                     </div>
                 </div>

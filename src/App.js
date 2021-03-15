@@ -8,11 +8,13 @@ import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import Details from './components/Details';
 function App() {
+
   return (
     <Router>
       <Switch>
-        <Route  path="/" exact component={Main} />
+        <Route  path={["/","/home"]} exact component={Main} />
         <Route  path="/healthy-recipes" component={HealthyRecipes} />
         <Route  path="/easy-recipes" component={EasyRecipes} />
         <Route  path="/daily-recipes" component={DailyRecipes} />
@@ -20,6 +22,7 @@ function App() {
         <Route  path="/contact-us" component={ContactUs} />
         <Route  path="/login" component={Login} />
         <Route  path="/sign-up" component={Signup} />
+        <Route  path="/productid-details" component={Details} />
       </Switch>
     </Router>
   );
