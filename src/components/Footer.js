@@ -7,9 +7,15 @@ class Footer extends Component {
             <div className="footer">
                 <div className="about-contact">
                     <h4>ABOUT</h4>
-                    <p>Hàng chục ngàn công thức nấu ăn ngon, đơn giản, dễ làm cùng nhiều tính năng hấp dẫn giúp cho việc nấu ăn dễ dàng và vui hơn mỗi ngày với Cookies!</p>
-                    <p>Tìm công thức nấu ăn? Tham khảo cách làm các món ăn mà bạn yêu thích?</p>
-                    <p>Chia sẻ công thức bạn yêu thích đến với mọi người qua mạng xã hội.</p>
+                   <div> 
+                        <a href="/about-us"> About Us </a>
+                   </div>
+                   <div> 
+                        <a href="/about-us"> About Us </a>
+                   </div>
+                   <div> 
+                        <a href="/about-us"> About Us </a>
+                   </div>
                 </div>
                 <div className="contact">
                 <h4>CONTACT</h4>
