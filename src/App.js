@@ -6,8 +6,8 @@ import EasyRecipes from './components/EasyRecipes';
 import DailyRecipes from './components/DailyRecipes';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
-import Login from './components/Login';
-import Signup from './components/Signup';
+import Login from './Login/Login';
+import Signup from './Login/Signup';
 import Details from './components/Details';
 function App() {
 

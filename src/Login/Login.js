@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from './Header';
+import Header from '../components/Header';
 import './Login.css';
 class Login extends Component {
     render() {
@@ -7,7 +7,7 @@ class Login extends Component {
             <div>
                 <Header />
                 <div className="login">
-                    <div className="box-sizing" >
+                    <div className="box-sizing1" >
                         <h1>Login </h1>
                         <form className="px-4 py-3">
                             <div className="form-group">

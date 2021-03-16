@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './Signup.css';
-import Header from './Header';
+import Header from '../components/Header';
 class Signup extends Component {
     render() {
         return (
             <div>
                 <Header />
                 <div className="sign-up" >
-                    <div className="box-sizing">
+                    <div className="box-sizing2">
                         <h1>Sign Up </h1>
                         <form className="px-4 py-3">
                             <div className="form-group">

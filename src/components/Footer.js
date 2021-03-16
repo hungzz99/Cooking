@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import './Footer.css';
-import Signup from './Signup';
+import Signup from '../Login/Signup';
 class Footer extends Component {
     render() {
         return (
             <div className="footer">
                 <div className="about-contact">
-                    <h4>ABOUT</h4>
+                    <h4>About Us</h4>
                    <div> 
-                        <a href="/about-us"> About Us </a>
+                        <a href="/about-us"> About Cookies </a>
                    </div>
                    <div> 
-                        <a href="/about-us"> About Us </a>
+                        <a href="/contact-us"> Contact Cookies </a>
                    </div>
                    <div> 
                         <a href="/about-us"> About Us </a>
