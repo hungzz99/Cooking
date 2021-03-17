@@ -2,10 +2,8 @@
     background-color: white;
 }
 .details {
-    margin-top: 0rem;
-    display: flex;
-    justify-content: center;
-    
+    margin-top: 7rem;
+    justify-content: center;      
 }
 .box-sizing{
     width: auto!important;
@@ -36,7 +34,7 @@
     border : none!important;
     background-color: #ffffff!important;
 }
-.Related-recipes{
+.Related-recipes-details{
     font-size: 20px;
     font-weight: bold;
     align-items: center;
@@ -50,7 +48,8 @@
     width: 20rem!important;
     height: 25rem!important;
     border: none!important;
-    position: relative;
+    display: block!important;
+    align-items: center!important;
 }
 .card-body {
     background-color: rgb(255, 255, 255)!important;

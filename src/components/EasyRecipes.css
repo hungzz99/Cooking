@@ -2,13 +2,14 @@
     background-color: white;
 }
 .easy-recipes {
+    margin-top: 7rem;
     align-items: center;
     margin-right: 10%;
     margin-left: 10%;
 }
 
 .media-body {
-    font-family: inherit;
+    font-family: 'Times New Roman', Times, serif;
     position: sticky;
     text-align: right;
     color: red!important;

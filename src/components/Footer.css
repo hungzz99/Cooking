@@ -1,4 +1,4 @@
-.footer {
+/* .footer {
     background-color: rgb(104, 235, 240)!important;
     bottom: auto;
     left: 0;
@@ -36,4 +36,15 @@
     margin-top: 17rem!important;
     position: absolute!important;
 
+} */
+.page-footer a{
+    color: black!important;
+    font-size:22px!important;
+    align-items: center!important;
+}
+.list-unstyled {
+    text-align: right!important;
+}
+.form-inline{
+    justify-content: center!important;
 }
