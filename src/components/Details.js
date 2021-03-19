@@ -24,7 +24,7 @@ class Details extends Component {
                                             <div className="input-group-text">
                                                 <MDBIcon icon="save" />                                                </div>
                                         </div>
-                                        <div className="input-group-text">
+                                        <div className="input-group-text" action="/like">
                                             <MDBIcon icon="heart" />
                                         </div>
                                     </div>
@@ -92,38 +92,73 @@ class Details extends Component {
                             </div>
                         </form>
                     </div>
-                    <div className="Related-recipes-details">
-                        <var>Related Recipes</var>
-                        <div className="card">
-                            <div className="row">
-                                <a className="col">
-                                    <img className="card-img-top" src={chicken} alt="Generic placeholder image" />
-                                    <div className="card-body">
-                                        <h5 className="card-title" align="center">Chicken</h5>
-                                    </div>
-                                </a>
-                                <a className="col">
-                                    <img className="card-img-top" src={pizza} alt="Generic placeholder image" />
-                                    <div className="card-body">
-                                        <h5 className="card-title" align="center">Pizza</h5>
-                                    </div>
-                                </a>
-                                <a className="col" href="/productid-details">
-                                    <img className="card-img-top" src={spaghetti} alt="Generic placeholder image" />
-                                    <div className="card-body">
-                                        <h5 className="card-title" align="center">Spaghetti</h5>
-                                    </div>
-                                </a>
-                                <a className="col">
-                                    <img className="card-img-top" src={pizza} alt="Generic placeholder image" />
-                                    <div className="card-body">
-                                        <h5 className="card-title" align="center">Pizza</h5>
-                                    </div>
-                                </a>
+                </div>
+                <hr />
+                <div className="media-title1" flex-direction="row">
+                        <h3 className="media-title-h3">Related Recipes</h3>
+                        <div>
+                            <div className="card">
+                                <div className="row">
+                                    <a className="col">
+                                        <img className="card-img-top" src={chicken} alt="Generic placeholder image" />
+                                        <div className="card-body">
+                                            <h5 className="card-title" align="center">Chicken</h5>
+                                        </div>
+                                    </a>
+                                    <a className="col">
+                                        <img className="card-img-top" src={pizza} alt="Generic placeholder image" />
+                                        <div className="card-body">
+                                            <h5 className="card-title" align="center">Pizza</h5>
+                                        </div>
+                                    </a>
+                                    <a className="col" href="/productid-details">
+                                        <img className="card-img-top" src={spaghetti}  alt="Generic placeholder image"  />
+                                        <div className="card-body">
+                                            <h5 className="card-title" align="center">Spaghetti</h5>
+                                        </div>
+                                    </a>
+                                    <a className="col">
+                                        <img className="card-img-top" src={pizza} alt="Generic placeholder image" />
+                                        <div className="card-body">
+                                            <h5 className="card-title" align="center">Pizza</h5>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                {/* <div className="Related-recipes-details">
+                    <var>Related Recipes</var>
+                    <div className="card">
+                        <div className="row">
+                            <a className="col">
+                                <img className="card-img-top" src={chicken} alt="Generic placeholder image" />
+                                <div className="card-body">
+                                    <h5 className="card-title" align="center">Chicken</h5>
+                                </div>
+                            </a>
+                            <a className="col">
+                                <img className="card-img-top" src={pizza} alt="Generic placeholder image" />
+                                <div className="card-body">
+                                    <h5 className="card-title" align="center">Pizza</h5>
+                                </div>
+                            </a>
+                            <a className="col" href="/productid-details">
+                                <img className="card-img-top" src={spaghetti} alt="Generic placeholder image" />
+                                <div className="card-body">
+                                    <h5 className="card-title" align="center">Spaghetti</h5>
+                                </div>
+                            </a>
+                            <a className="col">
+                                <img className="card-img-top" src={pizza} alt="Generic placeholder image" />
+                                <div className="card-body">
+                                    <h5 className="card-title" align="center">Pizza</h5>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+                </div> */}
                 <br />
                 <Footer />
             </div>

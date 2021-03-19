@@ -31,10 +31,14 @@
     margin-top: 1rem!important;
 }
 
-.card-img-top {
+.card-img-top{
     width: 100%!important;
     height: 20rem!important;
-    display: block!important;
+    display: inline-block!important;
+    transition: transform 300ms;
+}
+.card-img-top:hover{
+    transform: translateY(-6px);
 }
 
 .card {
@@ -73,6 +77,6 @@
     width: 500px;
     height: 350px;
     position: relative;
-    border: solid 1px;
+    /* border: solid 1px; */
     margin-right: 1rem;
 }

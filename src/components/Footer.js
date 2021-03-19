@@ -17,9 +17,9 @@ class Footer extends Component {
                             <MDBCol md="6">
                                 <ul>
                                     <li className="list-unstyled">
-                                        <a href="#!">About Us </a>
+                                        <a href="/about-us">About Us </a>
                                         <MDBIcon icon="grip-lines-vertical" />
-                                        <a href="#!"> Contact Us </a>
+                                        <a href="contact-us"> Contact Us </a>
                                         <MDBIcon icon="grip-lines-vertical" />
                                     </li>
                                 </ul>
@@ -27,7 +27,7 @@ class Footer extends Component {
                         </MDBRow>
                     </MDBContainer>
                     <div>
-                        <form className="form-inline " action="/sign-up">
+                        <form className="form-inline" action="/sign-up">
                             <input className="form-control form-control-sm ml-4 w-35" type="text" placeholder="Email..." aria-label="Email" />
                             <button className="btn btn-warning my-2 my-sm-0" type="submit">Signup</button>
                         </form>

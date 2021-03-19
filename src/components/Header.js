@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Header.css';
 import logo from '../Pictures/logo.png';
-import { MDBCol, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink, MDBIcon, MDBBtn } from 'mdbreact';
+import { MDBCol, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink, MDBIcon, Link } from 'mdbreact';
 import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
 import { BrowserRouter as Router } from 'react-router-dom';
 
@@ -73,7 +73,7 @@ class Header extends Component {
                             <MDBCollapse isOpen={this.state.collapse} navbar>
                                 <MDBNavbarNav left>
                                     <MDBNavItem >
-                                        <MDBNavLink to="/home" >Cookies</MDBNavLink>
+                                        <Link to="/home" >Cookies</Link>
                                     </MDBNavItem>
                                     <MDBDropdown>
                                         <MDBDropdownToggle nav caret>
@@ -81,15 +81,17 @@ class Header extends Component {
                                         </MDBDropdownToggle>
                                         <MDBDropdownMenu className="dropdown-default">
                                             <MDBDropdownItem href="/healthy-recipes">Healthy Recipes</MDBDropdownItem>
+                                            <hr/>
                                             <MDBDropdownItem href="/easy-recipes">Easy Recipes</MDBDropdownItem>
+                                            <hr/>
                                             <MDBDropdownItem href="/daily-recipes">Daily Recipes</MDBDropdownItem>
                                         </MDBDropdownMenu>
                                     </MDBDropdown>
                                     <MDBNavItem >
-                                        <MDBNavLink to="/about-us" >About Us</MDBNavLink>
+                                        <Link to={'/about-us'} >About Us</Link>
                                     </MDBNavItem>
                                     <MDBNavItem>
-                                        <MDBNavLink to="/contact-us" >Contact Us</MDBNavLink>
+                                        <Link to="/contact-us" >Contact Us</Link>
                                     </MDBNavItem>
                                 </MDBNavbarNav>
                                 <MDBCol md="3" right>
