@@ -14,23 +14,20 @@
     text-align: right;
     color: red!important;
     margin-right: 1rem;
-    font-size: 50px!important;
+    font-size: 40px!important;
 }
 
 .highlight {
     color: white !important;
     background-color: red !important;
-    font-size: 50px!important;
+    font-size: 40px!important;
 }
-
 .media-title {
     margin-top: 3rem;
 }
-
 .media-title-h3 {
     margin-top: 1rem!important;
 }
-
 .card-img-top{
     height: 20rem!important;
     transition: transform 300ms;
@@ -39,6 +36,8 @@
     transform: translateY(-6px);
 }
 .card {
+    margin-left: 2px!important;
+    margin-right: 2px!important;
     border: none!important;
     align-items: center;
 }
@@ -47,7 +46,7 @@
     font-family: inherit;
 }
 .button-show {
-    border: solid 1px;
+    /* border: solid 1px; */
     border-radius: 3px;
     background-color: #e40754;
     border-color: #e40754;
@@ -55,11 +54,9 @@
     color: white;
     font-family: inherit;
 }
-
 .video {
     width: 500px;
     height: 350px;
     position: relative;
-    /* border: solid 1px; */
     margin-right: 1rem;
 }

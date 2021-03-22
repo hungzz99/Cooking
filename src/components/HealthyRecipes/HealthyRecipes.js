@@ -6,7 +6,7 @@ import chicken from '../../Pictures/chicken.jpg';
 import pizza from '../../Pictures/pizza.jpg';
 import spaghetti from '../../Pictures/spagheti.jpg';
 import HealthyVideo from '../../Video/HealthyVideo.mp4';
-import { MDBCard, MDBCardTitle, MDBCardGroup, MDBCardImage, MDBCardBody,MDBBtn, } from "mdbreact";
+import { MDBCard, MDBCardTitle, MDBCardGroup, MDBCardImage, MDBCardBody, Link, } from "mdbreact";
 
 class HealthyRecipes extends Component {
     render() {
@@ -32,69 +32,71 @@ class HealthyRecipes extends Component {
                         <br />
                         <div>
                         <MDBCardGroup>
-                                <MDBCard>
+                                <MDBCard >
+                                    <Link to="/productid-details">
                                     <MDBCardImage src={spaghetti} alt="MDBCard image cap" top hover
-                                        overlay="white-slight" />
+                                        overlay="white-slight"  />
                                     <MDBCardBody>
-                                        <MDBCardTitle tag="h5">Panel title</MDBCardTitle>
-                                        <MDBBtn color="primary" size="md" href="/productid-details">
-                                            read more
-                                        </MDBBtn>
+                                        <MDBCardTitle tag="h5">Spaghetti</MDBCardTitle>
                                     </MDBCardBody>
+                                    </Link>
                                 </MDBCard>
                                 <MDBCard>
+                                <Link to="/productid-details">
                                     <MDBCardImage src={chicken} alt="MDBCard image cap" top hover
                                         overlay="white-slight" />
                                     <MDBCardBody>
-                                        <MDBCardTitle tag="h5">Panel title</MDBCardTitle>
-                                        <MDBBtn color="primary" size="md" href="/productid-details">
-                                            read more
-                                        </MDBBtn>
+                                        <MDBCardTitle tag="h5">Chicken</MDBCardTitle>
                                     </MDBCardBody>
+                                    </Link>
                                 </MDBCard>
 
                                 <MDBCard>
+                                <Link to="/productid-details">
+
                                     <MDBCardImage src={pizza} alt="MDBCard image cap" top hover
                                         overlay="white-slight" />
                                     <MDBCardBody>
-                                        <MDBCardTitle tag="h5">Panel title</MDBCardTitle>
-                                        <MDBBtn color="primary" size="md" href="/productid-details">
-                                            read more
-                                        </MDBBtn>
+                                        <MDBCardTitle tag="h5">Pizza</MDBCardTitle>
+                                        
                                     </MDBCardBody>
+                                    </Link>
                                 </MDBCard>
                             </MDBCardGroup>
                             <MDBCardGroup>
                                 <MDBCard>
+                                <Link to="/productid-details">
+
                                     <MDBCardImage src={spaghetti} alt="MDBCard image cap" top hover
                                         overlay="white-slight" />
                                     <MDBCardBody>
-                                        <MDBCardTitle tag="h5">Panel title</MDBCardTitle>
-                                        <MDBBtn color="primary" size="md" href="/productid-details">
-                                            read more
-                                        </MDBBtn>
+                                        <MDBCardTitle tag="h5">Spaghetti</MDBCardTitle>
+                                        
                                     </MDBCardBody>
+                                    </Link>
                                 </MDBCard>
                                 <MDBCard>
+                                <Link to="/productid-details">
+
                                     <MDBCardImage src={chicken} alt="MDBCard image cap" top hover
                                         overlay="white-slight" />
                                     <MDBCardBody>
-                                        <MDBCardTitle tag="h5">Panel title</MDBCardTitle>
-                                        <MDBBtn color="primary" size="md" href="/productid-details">
-                                            read more
-                                        </MDBBtn>
+                                        <MDBCardTitle tag="h5">Chicken</MDBCardTitle>
+                                        
                                     </MDBCardBody>
+                                    </Link>
                                 </MDBCard>
 
                                 <MDBCard>
+                                <Link to="/productid-details">
+
                                     <MDBCardImage src={pizza} alt="MDBCard image cap" top hover
                                         overlay="white-slight" />
                                     <MDBCardBody>
-                                        <MDBCardTitle tag="h5">Panel title</MDBCardTitle>
-                                        <MDBBtn color="primary" size="md" href="/productid-details">
-                                            read more
-                                        </MDBBtn>
+                                        <MDBCardTitle tag="h5">Pizza</MDBCardTitle>
+                                       
                                     </MDBCardBody>
+                                    </Link>
                                 </MDBCard>
                             </MDBCardGroup>
                             <div align="center">

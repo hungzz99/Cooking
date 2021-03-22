@@ -30,7 +30,7 @@
     font-size:50px!important;
 }
 .button-show {
-    border: solid 1px;
+    /* border: solid 1px; */
     border-radius: 3px;
     background-color: #e40754;
     border-color: #e40754;

@@ -25,14 +25,7 @@ class Footer extends Component {
                             </MDBCol>
                         </MDBRow>
                     </MDBContainer>
-                    <div>
-                        <form className="form-inline" action="/sign-up">
-                            <input className="form-control form-control-sm ml-4 w-35" type="text" placeholder="Email..." aria-label="Email" />
-                            <button className="btn btn-warning my-2 my-sm-0" type="submit">Signup</button>
-                        </form>
-                    </div>
                     <div className="footer-copyright text-center py-3">
-
                         <MDBContainer fluid>
                             &copy; {new Date().getFullYear()} Copyright: <a> Cookiespageco.fanpage@gmail.com </a>
                         </MDBContainer>
