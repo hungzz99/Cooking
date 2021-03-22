@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Signup.css';
-import Header from '../components/Header';
+import Header from '../components/Header/Header';
 class Signup extends Component {
     render() {
         return (

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './AboutUs.css';
-import Header from './Header';
+import Header from '../Header/Header';
 class AboutUs extends Component {
     render() {
         return (

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './Footer.css';
-import Signup from '../Login/Signup';
 import { MDBCol, MDBContainer, MDBRow, MDBFooter, MDBIcon } from "mdbreact";
-import logo from '../Pictures/logo.png';
+import logo from '../../Pictures/logo.png';
 class Footer extends Component {
     render() {
         const bgColor1 = { backgroundColor: '#68EBF0' }

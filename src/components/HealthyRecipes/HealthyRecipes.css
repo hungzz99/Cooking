@@ -41,11 +41,10 @@
     border: none!important;
     position: relative;
 }
-.row{
+/* .row{
     width: 96rem!important; 
-    /* fix with size */
     height: inherit;
-}
+} */
 .a.col {
     width: 50px!important;
 } 

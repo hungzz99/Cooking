@@ -1,14 +1,14 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Main from './components/Main';
-import HealthyRecipes from './components/HealthyRecipes';
-import EasyRecipes from './components/EasyRecipes';
-import DailyRecipes from './components/DailyRecipes';
-import AboutUs from './components/AboutUs';
-import ContactUs from './components/ContactUs';
+import Main from './components/Main/Main';
+import HealthyRecipes from './components/HealthyRecipes/HealthyRecipes';
+import EasyRecipes from './components/EasyRecipes/EasyRecipes';
+import DailyRecipes from './components/DailyRecipes/DailyRecipes';
+import AboutUs from './components/AboutUs/AboutUs';
+import ContactUs from './components/ContactUs/ContactUs';
 import Login from './Login/Login';
 import Signup from './Login/Signup';
-import Details from './components/Details';
+import Details from './components/Details/Details';
 function App() {
 
   return (

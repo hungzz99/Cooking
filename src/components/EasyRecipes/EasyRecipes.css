@@ -1,37 +1,36 @@
-.back-ground1 {
-    background-color: rgb(255, 255, 255)!important;
+.back-ground3 {
+    background-color: white;
 }
-.Main {
+.easy-recipes {
     margin-top: 7rem;
     align-items: center;
     margin-right: 10%;
     margin-left: 10%;
 }
-.Main img {
-    transform-origin: 50% 50%;
-    box-sizing: border-box;
-    border-radius: 5px;
-    width: 40%;
-}
+
 .media-body {
-    font-family:inherit;
+    font-family: 'Times New Roman', Times, serif;
     position: sticky;
     text-align: right;
     color: red!important;
     margin-right: 1rem;
     font-size: 50px!important;
 }
-.highlight{
+
+.highlight {
     color: white !important;
-    background-color:red !important;
-    font-size:50px!important;
+    background-color: red !important;
+    font-size: 50px!important;
 }
+
 .media-title {
     margin-top: 3rem;
 }
+
 .media-title-h3 {
     margin-top: 1rem!important;
 }
+
 .card-img-top{
     width: 100%!important;
     height: 20rem!important;
@@ -41,31 +40,28 @@
 .card-img-top:hover{
     transform: translateY(-6px);
 }
+
 .card {
     width: 20rem!important;
     height: 25rem!important;
     border: none!important;
     position: relative;
 }
-.card-body {
-    background-color: rgb(255, 255, 255)!important;
-}
-.row{
-    width: 96rem!important; 
-    /* fix with size */
+
+/* .row {
+    width: 96rem!important;
     height: inherit;
-}
+} */
+
 .a.col {
     width: 50px!important;
+}
 
+.card-title {
+    color: black;
+    font-family: inherit;
 }
-.a {
-    color: red!important;
-}
-.card-title{
-    color:  black;
-    font-family:inherit;
-}
+
 .button-show {
     border: solid 1px;
     border-radius: 3px;
@@ -74,11 +70,12 @@
     font-size: 1rem;
     color: white;
     font-family: inherit;
-
 }
+
 .video {
     width: 500px;
     height: 350px;
     position: relative;
+    /* border: solid 1px; */
     margin-right: 1rem;
 }
