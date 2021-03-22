@@ -32,36 +32,20 @@
 }
 
 .card-img-top{
-    width: 100%!important;
     height: 20rem!important;
-    display: inline-block!important;
     transition: transform 300ms;
 }
 .card-img-top:hover{
     transform: translateY(-6px);
 }
-
 .card {
-    width: 20rem!important;
-    height: 25rem!important;
     border: none!important;
-    position: relative;
+    align-items: center;
 }
-
-/* .row {
-    width: 96rem!important;
-    height: inherit;
-} */
-
-.a.col {
-    width: 50px!important;
-}
-
 .card-title {
     color: black;
     font-family: inherit;
 }
-
 .button-show {
     border: solid 1px;
     border-radius: 3px;

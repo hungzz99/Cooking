@@ -51,25 +51,6 @@
     margin: 0 12rem;
     margin-bottom: 1rem;
 }
-.media-title-h3
-.card-img-top{
-    width: 100%!important;
-    height: 20rem!important;
-    display: inline-block!important;
-    transition: transform 200ms;
-}
-.card-img-top:hover{
-    transform: translateY(-1px);
-}
-.card-1 {
-    width: 20rem!important;
-    height: 25rem!important;
-    border: none!important;
-    margin: 0 12rem  ;
-}
-.card-body {
-    background-color: rgb(255, 255, 255)!important;
-}
 .media-body {
     font-family:inherit;
     position: sticky;
@@ -78,7 +59,7 @@
     margin-right: 1rem;
     font-size: 50px!important;
 }
-/* .row{
-    width: 96rem!important; 
-    height: inherit;
-} */
+.Cardcss {
+    margin-left: 10%;
+    margin-right: 10%;
+}

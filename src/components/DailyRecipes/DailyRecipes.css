@@ -9,25 +9,7 @@
 .media-title {
     margin-top: 3rem;
 }
-.card-img-top{
-    width: 100%!important;
-    height: 20rem!important;
-    display: inline-block!important;
-    transition: transform 300ms;
-}
-.card-img-top:hover{
-    transform: translateY(-6px);
-}
-.card {
-    width: 20rem!important;
-    height: 25rem!important;
-    border: none!important;
-    position: relative;
-}
-/* .row {
-    width: 96rem!important;
-    height: inherit;
-} */
+
 .video {
     width: 500px;
     height: 350px;
@@ -41,11 +23,12 @@
     margin-right: 10%;
     margin-left: 10%;
 }
-
+.card-title {
+    text-align: center;
+}
 .back-ground4 {
     background-color: white;
 }
-
 .highlight {
     color: white !important;
     background-color: red !important;
@@ -54,14 +37,6 @@
 .media-title-h3 {
     margin-top: 1rem!important;
 }
-.a.col {
-    width: 50px!important;
-}
-.card-title {
-    color: black;
-    font-family: inherit;
-}
-
 .button-show {
     border: solid 1px;
     border-radius: 3px;
@@ -71,4 +46,5 @@
     color: white;
     font-family: inherit;
 }
+
 
