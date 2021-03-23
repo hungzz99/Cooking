@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/Header/Header';
 import './Login.css';
+import {MDBIcon} from "mdbreact";
 class Login extends Component {
     render() {
         return (
@@ -31,7 +32,9 @@ class Login extends Component {
                             <a href="#">Forgot password?</a>
                         </div>
                         <form className="px-4 py-3" action="/login">
-                            <button className="btn btn-success my-2 my-sm-0" type="submit">Login With Google Account </button>
+                            <button className="btn btn-success my-2 my-sm-0" type="submit">
+                            <MDBIcon fab icon="google" />
+                               Login With Google Account </button>
                             <br />
                         </form>
                     </div>

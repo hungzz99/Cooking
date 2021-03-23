@@ -23,8 +23,6 @@ class Details extends Component {
                                             <div className="input-group-text">
                                                 <MDBIcon fab icon="facebook-square" />
                                             </div>
-                                            <div className="input-group-text">
-                                                <MDBIcon icon="save" />                                                </div>
                                         </div>
                                         <div className="input-group-text" action="/like">
                                             <MDBIcon icon="heart" />

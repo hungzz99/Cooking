@@ -1,0 +1,12 @@
+.contact {
+    margin-top: 10rem;
+    margin-left: 20px;
+    margin-right: 20px;
+    position: relative;
+}
+/* .mt-2 {
+    margin-top: none!important;
+} */
+.page-footer{
+    bottom: 0!important;
+}
