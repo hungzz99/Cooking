@@ -9,6 +9,7 @@ import ContactUs from './components/ContactUs/ContactUs';
 import Login from './Login/Login';
 import Signup from './Login/Signup';
 import Details from './components/Details/Details';
+import OccasionsRecipes from './components/OccasionsRecipes/OccasionsRecipes';
 function App() {
 
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route  path="/healthy-recipes" component={HealthyRecipes} />
         <Route  path="/easy-recipes" component={EasyRecipes} />
         <Route  path="/daily-recipes" component={DailyRecipes} />
+        <Route  path="/occasions-recipes" component={OccasionsRecipes} />
         <Route  path="/about-us" component={AboutUs} />
         <Route  path="/contact-us" component={ContactUs} />
         <Route  path="/login" component={Login} />

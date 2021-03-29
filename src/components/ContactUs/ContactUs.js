@@ -22,7 +22,7 @@ class ContactUs extends Component {
                                         </div>
 
                                         <h5 className="mt-2">
-                                            <MDBIcon icon="map-marker-alt" /> Detech Building, Ton That Thuyet Street, Nam Tu Liem District, Ha Noi City, Viet Nam.
+                                            <MDBIcon icon="map-marker-alt" /> Detech Tower, 8 Ton That Thuyet Street, Nam Tu Liem District, Ha Noi City, Viet Nam.
                                         </h5>
                                         <h5 className="mt-2">
                                             <MDBIcon icon="envelope " /> Cookiespageco.fanpage@gmail.com

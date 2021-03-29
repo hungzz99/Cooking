@@ -1,3 +1,8 @@
+/* MDB */
+.page-footer {
+    bottom: 0;
+    width: 100%;
+}
 .page-footer a{
     color: black!important;
     font-size:22px!important;

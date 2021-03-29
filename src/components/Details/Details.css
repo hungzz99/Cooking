@@ -37,7 +37,7 @@
     background-color: #ffffff!important;
 }
 .media-body {
-    font-family:inherit;
+    font-family:Andale Mono, monospace;
     position: sticky;
     text-align: right;
     color: red!important;
@@ -52,7 +52,7 @@
     margin-bottom: 1rem;
 }
 .media-body {
-    font-family:inherit;
+    font-family:Andale Mono, monospace;
     position: sticky;
     text-align: right;
     color: red!important;

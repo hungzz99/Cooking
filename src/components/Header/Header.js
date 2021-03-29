@@ -45,6 +45,8 @@ class Header extends Component {
                                             <MDBDropdownItem href="/easy-recipes">Easy Recipes</MDBDropdownItem>
                                             <hr/>
                                             <MDBDropdownItem href="/daily-recipes">Daily Recipes</MDBDropdownItem>
+                                            <hr/>
+                                            <MDBDropdownItem href="/occasions-recipes">Occasions Recipes</MDBDropdownItem>
                                         </MDBDropdownMenu>
                                     </MDBDropdown>
                                     <MDBNavItem >

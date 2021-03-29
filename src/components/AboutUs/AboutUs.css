@@ -1,0 +1,11 @@
+.AboutUs{
+    margin-top: 7rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+/* MDB */
+.card-body {
+    width: 50%!important;
+}

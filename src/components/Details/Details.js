@@ -21,7 +21,7 @@ class Details extends Component {
                                     <div className="header-details">
                                         <div className="input-group-prepend">
                                             <div className="input-group-text">
-                                                <MDBIcon fab icon="facebook-square" />
+                                            <MDBIcon fab icon="facebook-f" />
                                             </div>
                                         </div>
                                         <div className="input-group-text" action="/like">
@@ -67,11 +67,7 @@ class Details extends Component {
                                                     <MDBIcon far icon="comment" />
                                                 </div>
                                                 <var> Comments</var>
-
                                             </div>
-                                            {/* <div>                                            
-                                                <Comments />
-                                            </div> */}
                                             <div className="col-auto">
                                                 <label className="sr-only" for="inlineFormInputGroup">Comments</label>
                                                 <div className="input-group mb-2">
