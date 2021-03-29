@@ -16,3 +16,8 @@
 .form-check {
     text-align: center!important;
 }
+/* MDB */
+.btn-default {
+    background-color: red;
+    color: white;
+}

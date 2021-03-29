@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 import './Login.css';
-import {MDBIcon} from "mdbreact";
+import { MDBIcon, MDBBtn } from "mdbreact";
 class Login extends Component {
     render() {
         return (
@@ -9,8 +10,9 @@ class Login extends Component {
                 <Header />
                 <div className="login">
                     <div className="box-sizing1" >
-                        <h1>Login </h1>
-                        <form className="px-4 py-3">
+                        <br/>
+                        <MDBIcon icon="user-circle" size="3x"/>
+                                                                        <form className="px-4 py-3">
                             <div className="form-group">
                                 <input type="user" className="form-control" placeholder="Username -or- Email Address" />
                             </div>
@@ -32,13 +34,13 @@ class Login extends Component {
                             <a href="#">Forgot password?</a>
                         </div>
                         <form className="px-4 py-3" action="/login">
-                            <button className="btn btn-success my-2 my-sm-0" type="submit">
-                            <MDBIcon fab icon="google" />
-                               Login With Google Account </button>
-                            <br />
+                            <MDBBtn social="gplus">
+                                <MDBIcon fab icon="google-plus-g" className="pr-1" /> Login With Google +
+                            </MDBBtn>
                         </form>
                     </div>
                 </div>
+                <Footer/>
             </div>
         );
     }

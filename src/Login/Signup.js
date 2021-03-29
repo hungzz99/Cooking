@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Signup.css';
 import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
+import {MDBIcon} from "mdbreact";
 class Signup extends Component {
     render() {
         return (
@@ -8,8 +10,9 @@ class Signup extends Component {
                 <Header />
                 <div className="sign-up" >
                     <div className="box-sizing2">
-                        <h1>Sign Up </h1>
-                        <form className="px-4 py-3">
+                    <br/>
+                    <MDBIcon icon="user-plus"  size="3x"/> 
+                                           <form className="px-4 py-3">
                             <div className="form-group">
                                 <input type="user" className="form-control" placeholder="Username*" />
                             </div>
@@ -29,10 +32,11 @@ class Signup extends Component {
                                 </label>
                             </div>
                             <br />
-                            <button type="submit" className="btn btn-primary" >Create Account</button>
+                            <button type="submit" className="btn btn-primary" backgroundColor="red" >Create Account</button>
                         </form>
                     </div>
                 </div>
+                <Footer/>
             </div>
         );
     }

@@ -6,7 +6,7 @@ import chicken from '../../Pictures/chicken.jpg';
 import pizza from '../../Pictures/pizza.jpg';
 import spaghetti from '../../Pictures/spagheti.jpg';
 import EasyVideo from '../../Video/EasyVideo.mp4';
-import { MDBCard, MDBCardTitle, MDBCardGroup, MDBCardImage, Link, MDBCardBody } from "mdbreact";
+import { MDBCard, MDBCardTitle, MDBCardGroup, MDBCardImage, Link, MDBCardBody, MDBIcon, MDBBtn } from "mdbreact";
 
 class EasyRecipes extends Component {
     render() {
@@ -104,7 +104,9 @@ class EasyRecipes extends Component {
                                 </MDBCard>
                             </MDBCardGroup>
                             <div align="center">
-                                <button className="button-show"> Show more</button>
+                                <MDBBtn >
+                                    <MDBIcon icon='clone left' /> Show More
+                                </MDBBtn>
                             </div>
                         </div>
                     </div>
