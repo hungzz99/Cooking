@@ -24,7 +24,7 @@ function App() {
         <Route  path="/contact-us" component={ContactUs} />
         <Route  path="/login" component={Login} />
         <Route  path="/sign-up" component={Signup} />
-        <Route  path="/productid-details" component={Details} />
+        <Route exact path="/productid-details/:id?" render={({match}) => <Details id={match.params.id} />}/>
       </Switch>
     </Router>
   );

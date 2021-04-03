@@ -2,14 +2,38 @@ import React, { Component } from 'react';
 import './EasyRecipes.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import chicken from '../../Pictures/chicken.jpg';
-import pizza from '../../Pictures/pizza.jpg';
-import spaghetti from '../../Pictures/spagheti.jpg';
 import EasyVideo from '../../Video/EasyVideo.mp4';
-import { MDBCard, MDBCardTitle, MDBCardGroup, MDBCardImage, Link, MDBCardBody, MDBIcon, MDBBtn } from "mdbreact";
+import { MDBCard, MDBCardGroup, MDBIcon, MDBBtn } from "mdbreact";
+import firebase from "firebase";
+import Recipe from '../Reciep/Reciep'
 
 class EasyRecipes extends Component {
+    constructor() {
+        super()
+        this.state = {
+            posts: []
+        }
+    }
+
+    componentDidMount() {
+        let posts = [];
+        const db = firebase.database().ref('/posts').orderByChild('type').equalTo('Easy');
+        db.on('child_added', (data) => {
+            posts.push({
+                id: data.val().postId,
+                title: data.val().title,
+                photoUrl: data.val().photoUrl,
+            })
+        });
+        console.log(posts);
+        this.setState({
+            posts: posts
+        })
+    }
+
+
     render() {
+        const recipe = this.state.posts.map(post => <Recipe key={post.id} id={post.id} title={post.title} photoUrl={post.photoUrl} />);
         return (
             <div className="back-ground3">
                 <Header />
@@ -35,74 +59,7 @@ class EasyRecipes extends Component {
                         <h3 className="media-title-h3"> Easy Recipes</h3>
                         <br />
                         <div>
-                        <MDBCardGroup>
-                                <MDBCard >
-                                    <Link to="/productid-details">
-                                    <MDBCardImage src={spaghetti} alt="MDBCard image cap" top hover
-                                        overlay="white-slight"  />
-                                    <MDBCardBody>
-                                        <MDBCardTitle tag="h5">Spaghetti</MDBCardTitle>
-                                    </MDBCardBody>
-                                    </Link>
-                                </MDBCard>
-                                <MDBCard>
-                                <Link to="/productid-details">
-                                    <MDBCardImage src={chicken} alt="MDBCard image cap" top hover
-                                        overlay="white-slight" />
-                                    <MDBCardBody>
-                                        <MDBCardTitle tag="h5">Chicken</MDBCardTitle>
-                                    </MDBCardBody>
-                                    </Link>
-                                </MDBCard>
-
-                                <MDBCard>
-                                <Link to="/productid-details">
-
-                                    <MDBCardImage src={pizza} alt="MDBCard image cap" top hover
-                                        overlay="white-slight" />
-                                    <MDBCardBody>
-                                        <MDBCardTitle tag="h5">Pizza</MDBCardTitle>
-                                        
-                                    </MDBCardBody>
-                                    </Link>
-                                </MDBCard>
-                            </MDBCardGroup>
-                            <MDBCardGroup>
-                                <MDBCard>
-                                <Link to="/productid-details">
-
-                                    <MDBCardImage src={spaghetti} alt="MDBCard image cap" top hover
-                                        overlay="white-slight" />
-                                    <MDBCardBody>
-                                        <MDBCardTitle tag="h5">Spaghetti</MDBCardTitle>
-                                        
-                                    </MDBCardBody>
-                                    </Link>
-                                </MDBCard>
-                                <MDBCard>
-                                <Link to="/productid-details">
-
-                                    <MDBCardImage src={chicken} alt="MDBCard image cap" top hover
-                                        overlay="white-slight" />
-                                    <MDBCardBody>
-                                        <MDBCardTitle tag="h5">Chicken</MDBCardTitle>
-                                        
-                                    </MDBCardBody>
-                                    </Link>
-                                </MDBCard>
-
-                                <MDBCard>
-                                <Link to="/productid-details">
-
-                                    <MDBCardImage src={pizza} alt="MDBCard image cap" top hover
-                                        overlay="white-slight" />
-                                    <MDBCardBody>
-                                        <MDBCardTitle tag="h5">Pizza</MDBCardTitle>
-                                       
-                                    </MDBCardBody>
-                                    </Link>
-                                </MDBCard>
-                            </MDBCardGroup>
+                            {recipe}
                             <div align="center">
                                 <MDBBtn >
                                     <MDBIcon icon='clone left' /> Show More
