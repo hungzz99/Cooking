@@ -12,7 +12,8 @@ class OccasionsRecipes extends Component {
     constructor() {
         super()
         this.state = {
-            posts: []
+            posts: [],
+            postId: null
         }
     }
 
@@ -21,6 +22,13 @@ class OccasionsRecipes extends Component {
         let itemPost = [];
         let itemIndex = 0;
         const db = firebase.database().ref('/posts').orderByChild('type').equalTo('Occasions');
+        if (this.state.postId === null) {
+            db.limitToLast(1).on('child_added', (data) => {
+                this.setState({
+                    postId: data.val().postId
+                })
+            })
+        }
         db.on('child_added', (data) => {
             itemPost.push({
                 id: data.val().postId,
@@ -32,6 +40,21 @@ class OccasionsRecipes extends Component {
                 _posts.push(itemPost);
                 itemIndex = 0;
                 itemPost = [];
+            }
+            if (data.val().postId === this.state.postId) {
+                console.log("Last Item Added. ItemIndex: " + itemIndex);
+                if (itemIndex === 1) {
+                    itemPost.push(null);
+                    itemPost.push(null);
+                    _posts.push(itemPost);
+                }
+                else if (itemIndex === 2) {
+                    itemPost.push(null);
+                    _posts.push(itemPost);
+                }
+                else {
+                    _posts.push(itemPost);
+                }
             }
             this.setState({
                 posts: _posts

@@ -12,7 +12,8 @@ class EasyRecipes extends Component {
     constructor() {
         super()
         this.state = {
-            posts: []
+            posts: [],
+            postId: null
         }
     }
 
@@ -21,6 +22,13 @@ class EasyRecipes extends Component {
         let itemPost = [];
         let itemIndex = 0;
         const db = firebase.database().ref('/posts').orderByChild('type').equalTo('Easy');
+        if (this.state.postId === null) {
+            db.limitToLast(1).on('child_added', (data) => {
+                this.setState({
+                    postId: data.val().postId
+                })
+            })
+        }
         db.on('child_added', (data) => {
             itemPost.push({
                 id: data.val().postId,
@@ -33,6 +41,21 @@ class EasyRecipes extends Component {
                 itemIndex = 0;
                 itemPost = [];
             }
+            if (data.val().postId === this.state.postId) {
+                console.log("Last Item Added. ItemIndex: " + itemIndex);
+                if (itemIndex === 1) {
+                    itemPost.push(null);
+                    itemPost.push(null);
+                    _posts.push(itemPost);
+                }
+                else if (itemIndex === 2) {
+                    itemPost.push(null);
+                    _posts.push(itemPost);
+                }
+                else {
+                    _posts.push(itemPost);
+                }
+            }
             this.setState({
                 posts: _posts
             })
@@ -41,6 +64,7 @@ class EasyRecipes extends Component {
 
 
     render() {
+        console.log(this.state.posts);
         const recipe = this.state.posts.map(posts => <Recipe posts={posts} />);
         return (
             <div className="back-ground3">
