@@ -23,12 +23,11 @@ class HealthyRecipes extends Component {
                 id: data.val().postId,
                 title: data.val().title,
                 photoUrl: data.val().photoUrl,
+            });
+            this.setState({
+                posts: posts
             })
         });
-        console.log(posts);
-        this.setState({
-            posts: posts
-        })
     }
     render() {
         const recipe = this.state.posts.map(post => <Recipe key={post.id} id={post.id} title={post.title} photoUrl={post.photoUrl} />);

@@ -23,12 +23,11 @@ class EasyRecipes extends Component {
                 id: data.val().postId,
                 title: data.val().title,
                 photoUrl: data.val().photoUrl,
+            });
+            this.setState({
+                posts: posts
             })
         });
-        console.log(posts);
-        this.setState({
-            posts: posts
-        })
     }
 
 

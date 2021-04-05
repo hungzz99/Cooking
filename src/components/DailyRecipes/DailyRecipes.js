@@ -4,7 +4,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import DailyVideo from '../../Video/DailyVideo.mp4';
 import Recipe from '../Reciep/Reciep'
-import {MDBIcon, MDBBtn } from "mdbreact";
+import { MDBIcon, MDBBtn } from "mdbreact";
 import firebase from "firebase";
 
 class DailyRecipes extends Component {
@@ -24,12 +24,12 @@ class DailyRecipes extends Component {
                 id: data.val().postId,
                 title: data.val().title,
                 photoUrl: data.val().photoUrl,
+            });
+
+            this.setState({
+                posts: posts
             })
         });
-        console.log(posts);
-        this.setState({
-            posts: posts
-        })
     }
 
     render() {
