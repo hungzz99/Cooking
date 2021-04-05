@@ -14,6 +14,7 @@ class Main extends Component {
             posts: [],
             itemLoad: 6
         }
+        this.loadMore = this.loadMore.bind(this)
     }
 
 
@@ -45,13 +46,14 @@ class Main extends Component {
     }
 
     loadMore() {
-        this.setState(previousState => {
+        this.setState(prevState => {
             return {
-                itemLoad: previousState.itemLoad + 3
+                itemLoad: prevState.itemLoad + 3
             }
-        })
-        this.loadItem()
-        console.log(this.state.itemLoad);
+        }, () => {
+            this.loadItem();
+            console.log(this.state.itemLoad)
+        });
     }
 
     render() {
@@ -83,7 +85,7 @@ class Main extends Component {
                         <div>
                             {recipe}
                             <div align="center">
-                                <MDBBtn onClick={() => { this.loadMore() }}>
+                                <MDBBtn onClick={this.loadMore}>
                                     <MDBIcon icon='clone left' /> Show More
                                 </MDBBtn>
                             </div>
