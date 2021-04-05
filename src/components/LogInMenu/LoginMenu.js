@@ -8,7 +8,7 @@ class accountRender extends Component {
     constructor() {
         super();
         this.state = {
-            loggedIn: false
+            loggedIn: null
         }
     }
 
@@ -48,12 +48,18 @@ class accountRender extends Component {
                 </MDBDropdown>
             )
         }
-        else {
+        else if (this.state.loggedIn == false) {
             return (
                 <MDBCol md="0.5" right>
                     <form className="form-inline mt-4 mb-4" action="/login">
                         <button className="btn btn-warning my-2 my-sm-0" type="submit">Login</button>
                     </form>
+                </MDBCol>
+            )
+        }
+        else {
+            return(
+                <MDBCol md="0.5" right>
                 </MDBCol>
             )
         }
