@@ -38,7 +38,6 @@ class Main extends Component {
         });
     }
     render() {
-        console.log(this.state.posts.map(posts => posts));
         const recipe = this.state.posts.map(posts => <Recipe  posts={posts} />);
         return (
             <div className="back-ground1">

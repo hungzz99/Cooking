@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import './Login.css';
-import { MDBIcon, MDBBtn } from "mdbreact";
 import SignInScreen from '../components/SignInScreen/SignInScreen';
 class Login extends Component {
     render() {

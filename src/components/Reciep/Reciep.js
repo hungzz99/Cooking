@@ -7,7 +7,6 @@ function Reciep(props) {
 
     const item = props.posts.map(post => {
         const link = `/productid-details/${post.id}`
-        console.log(link);
         return (
             <MDBCard >
                 <Link to={link}>
