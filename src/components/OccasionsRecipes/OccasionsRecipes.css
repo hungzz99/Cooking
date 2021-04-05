@@ -11,7 +11,7 @@
 .media-body {
     font-family: 'Times New Roman', Times, serif;
     position: sticky;
-    text-align: right;
+    /* text-align: right; */
     color: red!important;
     margin-right: 1rem;
     font-size: 40px!important;
@@ -43,7 +43,6 @@
 }
 .card-title {
     color: black;
-    font-family: inherit;
 }
 .button-show {
     /* border: solid 1px; */
