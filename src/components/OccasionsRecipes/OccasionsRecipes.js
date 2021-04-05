@@ -6,6 +6,7 @@ import EasyVideo from '../../Video/EasyVideo.mp4';
 import { MDBCard, MDBCardGroup, MDBIcon, MDBBtn } from "mdbreact";
 import firebase from "firebase";
 import Recipe from '../Reciep/Reciep'
+import ReactPlayer from 'react-player';
 
 class OccasionsRecipes extends Component {
     constructor() {
@@ -27,7 +28,7 @@ class OccasionsRecipes extends Component {
                 photoUrl: data.val().photoUrl,
             });
             itemIndex++;
-            if (itemIndex == 3){
+            if (itemIndex === 3) {
                 _posts.push(itemPost);
                 itemIndex = 0;
                 itemPost = [];
@@ -55,7 +56,12 @@ class OccasionsRecipes extends Component {
                                     </span>
                                 </div>
                                 <div>
-                                    <iframe className="video" src={EasyVideo}></iframe>
+                                    <ReactPlayer
+                                        playing='true'
+                                        loop='true'
+                                        volume='0.5'
+                                        url='https://firebasestorage.googleapis.com/v0/b/cooking-forum.appspot.com/o/videos%2FEasyVideo.mp4?alt=media&token=c7f78230-011a-4eb8-bc3d-237bdd46154c'
+                                    />
                                 </div>
                             </div>
                         </MDBCard>
@@ -65,11 +71,6 @@ class OccasionsRecipes extends Component {
                         <br />
                         <div>
                             {recipe}
-                            <div align="center">
-                                <MDBBtn >
-                                    <MDBIcon icon='clone left' /> Show More
-                                </MDBBtn>
-                            </div>
                         </div>
                     </div>
                 </div>

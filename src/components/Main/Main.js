@@ -1,25 +1,31 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import HomeVideo from '../../Video/HomeVideo.mp4';
 import { MDBBtn, MDBIcon } from "mdbreact";
 import Recipe from '../Reciep/Reciep';
 import firebase from "firebase";
+import ReactPlayer from 'react-player'
 
 import './Main.css';
 class Main extends Component {
     constructor() {
         super()
         this.state = {
-            posts: []
+            posts: [],
+            itemLoad: 6
         }
     }
 
+
     componentDidMount() {
+        this.loadItem()
+    }
+
+    loadItem() {
         let _posts = [];
         let itemPost = [];
         let itemIndex = 0;
-        const db = firebase.database().ref('/posts').limitToLast(6);
+        const db = firebase.database().ref('/posts').limitToFirst(this.state.itemLoad);
         db.on('child_added', (data) => {
             itemPost.push({
                 id: data.val().postId,
@@ -27,7 +33,7 @@ class Main extends Component {
                 photoUrl: data.val().photoUrl,
             });
             itemIndex++;
-            if (itemIndex == 3){
+            if (itemIndex === 3) {
                 _posts.push(itemPost);
                 itemIndex = 0;
                 itemPost = [];
@@ -37,8 +43,19 @@ class Main extends Component {
             })
         });
     }
+
+    loadMore() {
+        this.setState(previousState => {
+            return {
+                itemLoad: previousState.itemLoad + 3
+            }
+        })
+        this.loadItem()
+        console.log(this.state.itemLoad);
+    }
+
     render() {
-        const recipe = this.state.posts.map(posts => <Recipe  posts={posts} />);
+        const recipe = this.state.posts.map(posts => <Recipe posts={posts} />);
         return (
             <div className="back-ground1">
                 <Header />
@@ -52,8 +69,13 @@ class Main extends Component {
                                 <p className="highlight">You Can Do Everything with Cookie's Recipes</p>
                             </span>
                         </div>
-                        <div>
-                            <iframe className="video" src={HomeVideo}></iframe>
+                        <div className='player-wrapper'>
+                            <ReactPlayer
+                                playing='true'
+                                loop='true'
+                                volume='0.5'
+                                url='https://firebasestorage.googleapis.com/v0/b/cooking-forum.appspot.com/o/videos%2FHomeVideo.mp4?alt=media&token=0d51e6a3-62b1-4020-9aba-92f71cc5c355'
+                            />
                         </div>
                     </div>
                     <div className="media-title" flex-direction="row">
@@ -61,7 +83,7 @@ class Main extends Component {
                         <div>
                             {recipe}
                             <div align="center">
-                                <MDBBtn >
+                                <MDBBtn onClick={() => { this.loadMore() }}>
                                     <MDBIcon icon='clone left' /> Show More
                                 </MDBBtn>
                             </div>

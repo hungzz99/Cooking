@@ -6,6 +6,7 @@ import DailyVideo from '../../Video/DailyVideo.mp4';
 import Recipe from '../Reciep/Reciep'
 import { MDBIcon, MDBBtn } from "mdbreact";
 import firebase from "firebase";
+import ReactPlayer from 'react-player'
 
 class DailyRecipes extends Component {
 
@@ -28,7 +29,7 @@ class DailyRecipes extends Component {
                 photoUrl: data.val().photoUrl,
             });
             itemIndex++;
-            if (itemIndex == 3){
+            if (itemIndex === 3) {
                 _posts.push(itemPost);
                 itemIndex = 0;
                 itemPost = [];
@@ -55,7 +56,12 @@ class DailyRecipes extends Component {
                             </span>
                         </div>
                         <div>
-                            <iframe className="video" src={DailyVideo}></iframe>
+                            <ReactPlayer
+                                playing='true'
+                                loop='true'
+                                volume='0.5'
+                                url='https://firebasestorage.googleapis.com/v0/b/cooking-forum.appspot.com/o/videos%2FDailyVideo.mp4?alt=media&token=b1da8ae7-d564-4cb3-9031-ef7e69531688'
+                            />
                         </div>
                     </div>
                     <div className="media-title" flex-direction="row">
@@ -64,11 +70,6 @@ class DailyRecipes extends Component {
                         <div>
                             {recipe}
                             <br />
-                            <div align="center">
-                                <MDBBtn >
-                                    <MDBIcon icon='clone left' /> Show More
-                                </MDBBtn>
-                            </div>
                         </div>
                     </div>
                 </div>

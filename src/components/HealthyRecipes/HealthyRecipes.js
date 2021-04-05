@@ -5,7 +5,8 @@ import Footer from '../Footer/Footer';
 import HealthyVideo from '../../Video/HealthyVideo.mp4';
 import { MDBIcon, MDBBtn } from "mdbreact";
 import firebase from "firebase";
-import Recipe from '../Reciep/Reciep'
+import Recipe from '../Reciep/Reciep';
+import ReactPlayer from 'react-player'
 
 class HealthyRecipes extends Component {
     constructor() {
@@ -27,7 +28,7 @@ class HealthyRecipes extends Component {
                 photoUrl: data.val().photoUrl,
             });
             itemIndex++;
-            if (itemIndex == 3){
+            if (itemIndex === 3) {
                 _posts.push(itemPost);
                 itemIndex = 0;
                 itemPost = [];
@@ -53,7 +54,12 @@ class HealthyRecipes extends Component {
                             </span>
                         </div>
                         <div>
-                            <iframe className="video" src={HealthyVideo}></iframe>
+                            <ReactPlayer
+                                playing='true'
+                                loop='true'
+                                volume='0.5'
+                                url='https://firebasestorage.googleapis.com/v0/b/cooking-forum.appspot.com/o/videos%2FHealthyVideo.mp4?alt=media&token=77aa15da-9be1-4909-8b35-057b445e5930'
+                            />
                         </div>
                     </div>
                     <div className="media-title" flex-direction="row">
@@ -61,11 +67,6 @@ class HealthyRecipes extends Component {
                         <br />
                         <div>
                             {recipe}
-                            <div align="center">
-                                <MDBBtn >
-                                    <MDBIcon icon='clone left' /> Show More
-                                </MDBBtn>
-                            </div>
                         </div>
                     </div>
                 </div>

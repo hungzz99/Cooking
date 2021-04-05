@@ -48,7 +48,7 @@ class accountRender extends Component {
                 </MDBDropdown>
             )
         }
-        else if (this.state.loggedIn == false) {
+        else if (!this.state.loggedIn) {
             return (
                 <MDBCol md="0.5" right>
                     <form className="form-inline mt-4 mb-4" action="/login">
