@@ -16,21 +16,29 @@ class OccasionsRecipes extends Component {
     }
 
     componentDidMount() {
-        let posts = [];
+        let _posts = [];
+        let itemPost = [];
+        let itemIndex = 0;
         const db = firebase.database().ref('/posts').orderByChild('type').equalTo('Occasions');
         db.on('child_added', (data) => {
-            posts.push({
+            itemPost.push({
                 id: data.val().postId,
                 title: data.val().title,
                 photoUrl: data.val().photoUrl,
             });
+            itemIndex++;
+            if (itemIndex == 3){
+                _posts.push(itemPost);
+                itemIndex = 0;
+                itemPost = [];
+            }
             this.setState({
-                posts: posts
+                posts: _posts
             })
         });
     }
     render() {
-        const recipe = this.state.posts.map(post => <Recipe key={post.id} id={post.id} title={post.title} photoUrl={post.photoUrl} />);
+        const recipe = this.state.posts.map(posts => <Recipe posts={posts} />);
         return (
             <div className="back-ground3">
                 <Header />
