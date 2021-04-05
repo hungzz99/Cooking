@@ -7,7 +7,6 @@ import DailyRecipes from './components/DailyRecipes/DailyRecipes';
 import AboutUs from './components/AboutUs/AboutUs';
 import ContactUs from './components/ContactUs/ContactUs';
 import Login from './Login/Login';
-import Signup from './Login/Signup';
 import Details from './components/Details/Details';
 import OccasionsRecipes from './components/OccasionsRecipes/OccasionsRecipes';
 function App() {
@@ -23,8 +22,7 @@ function App() {
         <Route  path="/about-us" component={AboutUs} />
         <Route  path="/contact-us" component={ContactUs} />
         <Route  path="/login" component={Login} />
-        <Route  path="/sign-up" component={Signup} />
-        <Route  path="/productid-details/:id?" component={Details}/>
+        <Route  path="/productid-details/:id" component={Details}/>
       </Switch>
     </Router>
   );

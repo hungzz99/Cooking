@@ -3,12 +3,14 @@ import './Header.css';
 import logo from '../../Pictures/logo.png';
 import { MDBCol, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink, MDBIcon, Link } from 'mdbreact';
 import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
+import firebase from 'firebase';
 
 class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
             collapse: false,
+            loggedIn: false,
         };
         this.onClick = this.onClick.bind(this);
     }
@@ -18,9 +20,22 @@ class Header extends Component {
             collapse: !this.state.collapse,
         });
     }
+
+    componentDidMount() {
+        const user = firebase.auth().currentUser
+        if (user != null) {
+            this.setState({
+                loggedIn: true
+            })
+        }
+        else {
+            this.setState({
+                loggedIn: false
+            })
+        }
+    }
     
     render() {
-        
         const bgColor = { backgroundColor: '#68EBF0' }
         return (
             <div>

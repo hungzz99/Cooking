@@ -6,7 +6,7 @@ import { MDBCard, MDBCardTitle, MDBCardGroup, MDBCardImage, Link, MDBCardBody, M
 function Reciep(props) {
 
     const item = props.posts.map(post => {
-        const link = "/productid-details/?id=" + post.id
+        const link = `/productid-details/${post.id}`
         console.log(link);
         return (
             <MDBCard >

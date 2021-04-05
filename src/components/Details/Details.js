@@ -8,7 +8,7 @@ import pizza from '../../Pictures/pizza.jpg';
 import spaghetti from '../../Pictures/spagheti.jpg';
 import { MDBCard, MDBCardTitle, MDBCardGroup, MDBCardImage, Link, MDBCardBody } from "mdbreact";
 import firebase from 'firebase';
-import { useParams } from 'react-router';
+import { useParams } from 'react-router-dom';
 // import Comments from '../Comments/Comment';
 
 class Details extends Component {
@@ -21,7 +21,7 @@ class Details extends Component {
     }
 
     componentDidMount() {
-        const db = firebase.database().ref('posts/-MX6SvX7u2DJUSShnEhO');
+        const db = firebase.database().ref(`posts/${this.props.myHookValue}`);
         db.once('value').then(data => {
             this.setState({
                 post: {
@@ -198,4 +198,11 @@ class Details extends Component {
     }
 }
 
-export default Details;
+function withMyHook(Component){
+    return function WrappedComponent(props){
+        const myHookValue = useParams();
+        return <Component {...props} myHookValue={myHookValue.id} />
+    }
+}
+
+export default withMyHook(Details);
