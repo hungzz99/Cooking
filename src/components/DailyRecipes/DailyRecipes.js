@@ -6,7 +6,7 @@ import DailyVideo from '../../Video/DailyVideo.mp4';
 import Recipe from '../Reciep/Reciep'
 import { MDBIcon, MDBBtn } from "mdbreact";
 import firebase from "firebase";
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player';
 
 class DailyRecipes extends Component {
 

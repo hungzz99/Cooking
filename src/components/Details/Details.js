@@ -9,7 +9,7 @@ import spaghetti from '../../Pictures/spagheti.jpg';
 import { MDBCard, MDBCardTitle, MDBCardGroup, MDBCardImage, Link, MDBCardBody } from "mdbreact";
 import firebase from 'firebase';
 import { useParams } from 'react-router-dom';
-// import Comments from '../Comments/Comment';
+import Comments from '../Comments/Comment';
 
 class Details extends Component {
 
@@ -97,7 +97,8 @@ class Details extends Component {
                                                 </div>
                                                 <var> Comments</var>
                                             </div>
-                                            <div className="col-auto">
+                                            <Comments/>
+                                            {/* <div className="col-auto">
                                                 <label className="sr-only" for="inlineFormInputGroup">Comments</label>
                                                 <div className="input-group mb-2">
                                                     <div className="input-group-prepend">
@@ -112,7 +113,7 @@ class Details extends Component {
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
                                 </div>
