@@ -97,7 +97,7 @@ class Details extends Component {
                                                 </div>
                                                 <var> Comments</var>
                                             </div>
-                                            <Comments/>
+                                            <Comments postId={this.props.myHookValue}/>
                                             {/* <div className="col-auto">
                                                 <label className="sr-only" for="inlineFormInputGroup">Comments</label>
                                                 <div className="input-group mb-2">
