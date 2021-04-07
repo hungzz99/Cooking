@@ -13,7 +13,6 @@ class accountRender extends Component {
     }
 
     componentDidMount() {
-        const user = firebase.auth().currentUser;
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 this.setState({ loggedIn: true })
@@ -24,7 +23,6 @@ class accountRender extends Component {
     }
 
     handleSignOut() {
-        const user = firebase.auth().currentUser;
         firebase.auth().signOut()
         this.setState({ loggedIn: false })
     }
