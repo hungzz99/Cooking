@@ -1,6 +1,16 @@
 {
   "rules": {
-    ".read": "now < 1617814800000",  // 2021-4-8
-    ".write": "now < 1617814800000",  // 2021-4-8
+    ".read": true,
+    ".write": "auth != null",
+    "post": {
+        ".indexOn": "type",
+    },
+    "comments": {
+      ".indexOn": "postId",
+      ".write": "auth != null",
+    },
+    "users": {
+      ".write": "auth != null",
+    }
   }
 }
