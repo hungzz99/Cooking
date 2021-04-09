@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import './HealthyRecipes.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import HealthyVideo from '../../Video/HealthyVideo.mp4';
-import { MDBIcon, MDBBtn } from "mdbreact";
 import firebase from "firebase";
 import Recipe from '../Reciep/Reciep';
 import ReactPlayer from 'react-player'
@@ -70,10 +68,10 @@ class HealthyRecipes extends Component {
                 <div className="healthy-recipes">
                     <div className="media">
                         <div className="media-body">
-                            <p bg="red">What We're Loving Now</p>
-                            <p>Cookies Is Seasoned With Love</p>
+                            <p bg="red">You Are A Bodybuilder?</p>
+                            <p bg="red">You Are A Person With A Healthy Lifestyle? </p>
                             <span>
-                                <p className="highlight">You Can Do Everything with Cookies Recipes</p>
+                                <p className="highlight">Let Try Out Healthy Recipes With Cookies </p>
                             </span>
                         </div>
                         <div>

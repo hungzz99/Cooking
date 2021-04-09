@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { MDBIcon } from "mdbreact";
+import { MDBIcon, MDBRow, MDBInput, MDBBtn, MDBCol } from "mdbreact";
 import firebase from 'firebase';
 
 class Comment extends Component {
@@ -51,22 +51,25 @@ class Comment extends Component {
         return (
             <>
                 <div className="comment">
-                    <div className="col-auto">
-                        {/* <label className="sr-only" for="inlineFormInputGroup">Comments</label> */}
-                        <div className="input-group mb-2">
-                            <div className="input-group-prepend">
-                                <div className="input-group-text">
-                                    <MDBIcon icon="user" />
-                                </div>
+                            <div class="col-md-12">
+                                <form class="reply-form">
+                                    <div class="commentBox">
+                                        <ul class="list-unstyled">
+                                            <li>
+                                            <span class="profileBox">M</span>
+                                            <span class="profileText">Your email address will not be published.</span>
+                                            </li>
+                                            <li> <span class="profileBox">M</span> <span class="profileText">Your email address will not be published. Required fields are marked </span> </li>
+                                        </ul>
+                                    </div>
+                                    <div id="div_id_username" class="form-group required">
+                                        <div class="controls form-group d-flex w-100 ">
+                                            <input class="input-md  textinput textInput form-control" id="id_username" placeholder="Write for something..." type="text" />
+                                            <button type="submit" class="btn btn-info border-radius-0  m-0 w-25">POST</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                            <input type="text" className="form-control" id="inlineFormInputGroup" placeholder="Write your comment" onChange={this.handleCommentChange} />
-                            <div className="input-group-prepend">
-                                <div className="input-group-text">
-                                    <MDBIcon far icon="paper-plane"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </>
         )

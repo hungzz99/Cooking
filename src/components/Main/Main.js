@@ -91,7 +91,7 @@ class Main extends Component {
                             <p bg="red">What We're Loving Now</p>
                             <p>Cookies Is Seasoned With Love</p>
                             <span>
-                                <p className="highlight">You Can Do Everything with Cookie's Recipes</p>
+                                <p className="highlight">You Can Cook Everything with Cookie's Recipes</p>
                             </span>
                         </div>
                         <div className='player-wrapper'>

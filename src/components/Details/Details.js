@@ -16,7 +16,7 @@ class Details extends Component {
     constructor(props) {
         super();
         this.state = {
-            post:{},
+            post: {},
         }
     }
 
@@ -48,11 +48,14 @@ class Details extends Component {
                                     <div className="header-details">
                                         <div className="input-group-prepend">
                                             <div className="input-group-text">
-                                            <MDBIcon fab icon="facebook-f" />
+                                                <MDBIcon fab icon="facebook-f" />
                                             </div>
-                                        </div>
-                                        <div className="input-group-text" action="/like">
-                                            <MDBIcon icon="heart" />
+                                            <div className="input-group-text" action="/like">
+                                                <MDBIcon icon="heart" />
+                                            </div>
+                                            <div className="input-group-text" action="/like">
+                                                <MDBIcon icon="print" />
+                                            </div>
                                         </div>
                                     </div>
                                     <hr />
@@ -76,8 +79,8 @@ class Details extends Component {
                                             <div className="input-group-text">
                                                 <MDBIcon icon="carrot" />
                                             </div>
-                                            <var> Ingredients:<br/>
-                                                 {this.state.post.ingredient} </var>
+                                            <var> Ingredients:<br />
+                                                {this.state.post.ingredient} </var>
                                         </div>
                                         <hr />
                                         <div className="input-group-prepend">
@@ -85,7 +88,7 @@ class Details extends Component {
                                                 <MDBIcon icon="hammer" />
                                             </div>
                                             <var>
-                                                Preparation:<br/>
+                                                Preparation:<br />
                                                 {this.state.post.preparation}
                                             </var>
                                         </div>
@@ -97,7 +100,7 @@ class Details extends Component {
                                                 </div>
                                                 <var> Comments</var>
                                             </div>
-                                            <Comments postId={this.props.myHookValue}/>
+                                            <Comments postId={this.props.myHookValue} />
                                             {/* <div className="col-auto">
                                                 <label className="sr-only" for="inlineFormInputGroup">Comments</label>
                                                 <div className="input-group mb-2">
@@ -123,74 +126,74 @@ class Details extends Component {
                 </div>
                 <hr />
                 <div className="Cardcss">
-                <MDBCardGroup>
-                                <MDBCard >
-                                    <Link to="/productid-details">
-                                    <MDBCardImage src={spaghetti} alt="MDBCard image cap" top hover
-                                        overlay="white-slight"  />
-                                    <MDBCardBody>
-                                        <MDBCardTitle tag="h5">Spaghetti</MDBCardTitle>
-                                    </MDBCardBody>
-                                    </Link>
-                                </MDBCard>
-                                <MDBCard>
-                                <Link to="/productid-details">
-                                    <MDBCardImage src={chicken} alt="MDBCard image cap" top hover
-                                        overlay="white-slight" />
-                                    <MDBCardBody>
-                                        <MDBCardTitle tag="h5">Chicken</MDBCardTitle>
-                                    </MDBCardBody>
-                                    </Link>
-                                </MDBCard>
+                    <MDBCardGroup>
+                        <MDBCard >
+                            <Link to="/productid-details">
+                                <MDBCardImage src={spaghetti} alt="MDBCard image cap" top hover
+                                    overlay="white-slight" />
+                                <MDBCardBody>
+                                    <MDBCardTitle tag="h5">Spaghetti</MDBCardTitle>
+                                </MDBCardBody>
+                            </Link>
+                        </MDBCard>
+                        <MDBCard>
+                            <Link to="/productid-details">
+                                <MDBCardImage src={chicken} alt="MDBCard image cap" top hover
+                                    overlay="white-slight" />
+                                <MDBCardBody>
+                                    <MDBCardTitle tag="h5">Chicken</MDBCardTitle>
+                                </MDBCardBody>
+                            </Link>
+                        </MDBCard>
 
-                                <MDBCard>
-                                <Link to="/productid-details">
+                        <MDBCard>
+                            <Link to="/productid-details">
 
-                                    <MDBCardImage src={pizza} alt="MDBCard image cap" top hover
-                                        overlay="white-slight" />
-                                    <MDBCardBody>
-                                        <MDBCardTitle tag="h5">Pizza</MDBCardTitle>
-                                        
-                                    </MDBCardBody>
-                                    </Link>
-                                </MDBCard>
-                            </MDBCardGroup>
-                            <MDBCardGroup>
-                                <MDBCard>
-                                <Link to="/productid-details">
+                                <MDBCardImage src={pizza} alt="MDBCard image cap" top hover
+                                    overlay="white-slight" />
+                                <MDBCardBody>
+                                    <MDBCardTitle tag="h5">Pizza</MDBCardTitle>
 
-                                    <MDBCardImage src={spaghetti} alt="MDBCard image cap" top hover
-                                        overlay="white-slight" />
-                                    <MDBCardBody>
-                                        <MDBCardTitle tag="h5">Spaghetti</MDBCardTitle>
-                                        
-                                    </MDBCardBody>
-                                    </Link>
-                                </MDBCard>
-                                <MDBCard>
-                                <Link to="/productid-details">
+                                </MDBCardBody>
+                            </Link>
+                        </MDBCard>
+                    </MDBCardGroup>
+                    <MDBCardGroup>
+                        <MDBCard>
+                            <Link to="/productid-details">
 
-                                    <MDBCardImage src={chicken} alt="MDBCard image cap" top hover
-                                        overlay="white-slight" />
-                                    <MDBCardBody>
-                                        <MDBCardTitle tag="h5">Chicken</MDBCardTitle>
-                                        
-                                    </MDBCardBody>
-                                    </Link>
-                                </MDBCard>
+                                <MDBCardImage src={spaghetti} alt="MDBCard image cap" top hover
+                                    overlay="white-slight" />
+                                <MDBCardBody>
+                                    <MDBCardTitle tag="h5">Spaghetti</MDBCardTitle>
 
-                                <MDBCard>
-                                <Link to="/productid-details">
+                                </MDBCardBody>
+                            </Link>
+                        </MDBCard>
+                        <MDBCard>
+                            <Link to="/productid-details">
 
-                                    <MDBCardImage src={pizza} alt="MDBCard image cap" top hover
-                                        overlay="white-slight" />
-                                    <MDBCardBody>
-                                        <MDBCardTitle tag="h5">Pizza</MDBCardTitle>
-                                       
-                                    </MDBCardBody>
-                                    </Link>
-                                </MDBCard>
-                            </MDBCardGroup>
+                                <MDBCardImage src={chicken} alt="MDBCard image cap" top hover
+                                    overlay="white-slight" />
+                                <MDBCardBody>
+                                    <MDBCardTitle tag="h5">Chicken</MDBCardTitle>
+
+                                </MDBCardBody>
+                            </Link>
+                        </MDBCard>
+
+                        <MDBCard>
+                            <Link to="/productid-details">
+
+                                <MDBCardImage src={pizza} alt="MDBCard image cap" top hover
+                                    overlay="white-slight" />
+                                <MDBCardBody>
+                                    <MDBCardTitle tag="h5">Pizza</MDBCardTitle>
+
+                                </MDBCardBody>
+                            </Link>
+                        </MDBCard>
+                    </MDBCardGroup>
                 </div>
                 <br />
                 <Footer />
@@ -199,8 +202,8 @@ class Details extends Component {
     }
 }
 
-function withMyHook(Component){
-    return function WrappedComponent(props){
+function withMyHook(Component) {
+    return function WrappedComponent(props) {
         const myHookValue = useParams();
         return <Component {...props} myHookValue={myHookValue.id} />
     }
