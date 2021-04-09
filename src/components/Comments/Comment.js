@@ -51,28 +51,36 @@ class Comment extends Component {
         return (
             <>
                 <div className="comment">
-                            <div class="col-md-12">
-                                <form class="reply-form">
-                                    <div class="commentBox">
-                                        <ul class="list-unstyled">
-                                            <li>
-                                            <span class="profileBox">M</span>
-                                            <span class="profileText">Your email address will not be published.</span>
-                                            </li>
-                                            <li> <span class="profileBox">M</span> <span class="profileText">Your email address will not be published. Required fields are marked </span> </li>
-                                        </ul>
+                    <div class="col-md-12">
+                        <div class="comment-box-wrapper">
+                            <div class="comment-box">
+                                <div class="comment-content">
+                                    <div class="commenter-head"><span class="commenter-name"><a href="" >Eliza Gautam</a></span> <span class="comment-date"><i class="far fa-clock"></i>2 days ago</span></div>
+                                    <div class="comment-body">
+                                        <span class="comment">This is comment content Here is nice comment</span>
                                     </div>
-                                    <div id="div_id_username" class="form-group required">
-                                        <div class="controls form-group d-flex w-100 ">
-                                            <input class="input-md  textinput textInput form-control" id="id_username" placeholder="Write for something..." type="text" />
-                                            <button type="submit" class="btn btn-info border-radius-0  m-0 w-25">POST</button>
-                                        </div>
+                                    <div class="comment-footer">
+                                        <span class="comment-likes">55 <a href="" class="comment-action active"> <i class="far fa-heart"></i></a></span> <span class="comment-reply">66 <a href="" class="comment-action">Reply</a></span>
                                     </div>
-                                </form>
+                                </div>
                             </div>
+                        </div>
+                        <hr/>
+                        <form class="reply-form">
+                            <div id="div_id_username" class="form-group required">
+                                <div class="controls form-group d-flex w-100 ">
+                                    <input class="input-md  textinput textInput form-control" id="id_username" placeholder="Write for something..." type="text" />
+                                    <button type="submit" class="btn btn-info border-radius-0  m-0 w-25">POST</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </>
         )
     }
 }
+function myFunction(x) {
+    x.classList.toggle("fa-thumbs-down");
+} 
 export default Comment

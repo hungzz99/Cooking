@@ -63,3 +63,6 @@
     margin-left: 10%;
     margin-right: 10%;
 }
+.input-group-prepend {
+    white-space: pre-line;
+}
