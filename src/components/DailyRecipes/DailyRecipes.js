@@ -19,48 +19,61 @@ class DailyRecipes extends Component {
     }
 
     componentDidMount() {
+        this.getLastPost();
+    }
+
+    getPosts() {
         let _posts = [];
         let itemPost = [];
         let itemIndex = 0;
         const db = firebase.database().ref('/posts').orderByChild('type').equalTo('Daily');
-        if (this.state.postId === null) {
-            db.limitToLast(1).on('child_added', (data) => {
+        console.log("Last postId: " + this.state.postId);
+        db.on('value', (snapshots) => {
+            snapshots.forEach(data => {
+                itemPost.push({
+                    id: data.val().postId,
+                    title: data.val().title,
+                    photoUrl: data.val().photoUrl,
+                });
+                itemIndex++;
+                if (itemIndex === 3) {
+                    _posts.push(itemPost);
+                    itemIndex = 0;
+                    itemPost = [];
+                }
+                if (data.val().postId === this.state.postId) {
+                    console.log("Last Item Added. ItemIndex: " + itemIndex);
+                    if (itemIndex === 1) {
+                        itemPost.push(null);
+                        itemPost.push(null);
+                        _posts.push(itemPost);
+                    }
+                    else if (itemIndex === 2) {
+                        itemPost.push(null);
+                        _posts.push(itemPost);
+                    }
+                    else {
+                        _posts.push(itemPost);
+                    }
+                }
                 this.setState({
-                    postId: data.val().postId
+                    posts: _posts
+                })
+            })
+        });
+    }
+
+    getLastPost() {
+        const db = firebase.database().ref('/posts').orderByChild('type').equalTo('Daily');
+        if (this.state.postId === null) {
+            db.limitToLast(1).on('value', (data) => {
+                data.forEach(lastPost => {
+                    this.setState({
+                        postId: lastPost.val().postId
+                    }, () => this.getPosts())
                 })
             })
         }
-        db.on('child_added', (data) => {
-            itemPost.push({
-                id: data.val().postId,
-                title: data.val().title,
-                photoUrl: data.val().photoUrl,
-            });
-            itemIndex++;
-            if (itemIndex === 3) {
-                _posts.push(itemPost);
-                itemIndex = 0;
-                itemPost = [];
-            }
-            if (data.val().postId === this.state.postId) {
-                console.log("Last Item Added. ItemIndex: " + itemIndex);
-                if (itemIndex === 1) {
-                    itemPost.push(null);
-                    itemPost.push(null);
-                    _posts.push(itemPost);
-                }
-                else if (itemIndex === 2) {
-                    itemPost.push(null);
-                    _posts.push(itemPost);
-                }
-                else {
-                    _posts.push(itemPost);
-                }
-            }
-            this.setState({
-                posts: _posts
-            })
-        });
     }
 
     render() {

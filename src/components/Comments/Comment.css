@@ -36,12 +36,6 @@ border: 1px solid #F2F2F2;
     border-radius: 4px;
      box-shadow:none;
 }
-.comment-btn:hover , .comment-btn:focus {
-    background:#2E7D32;
-    outline: none;
-    border-radius: 4px;
-    box-shadow:none;
-}
 .comment-box-wrapper{
  display:flex; 
  flex-direction:column;

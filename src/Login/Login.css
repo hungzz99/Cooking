@@ -1,9 +1,10 @@
 .login {
-    margin-top: 14rem;
+    margin-top: 20rem;
     justify-content: center;
     display: flex;
 }
 .box-sizing1{
+    margin-bottom: 20rem;
     display: block;
     align-items: center!important;
     width: 40rem!important;

@@ -20,7 +20,7 @@ class Main extends Component {
 
 
     componentDidMount() {
-        this.loadItem()
+        this.getLastPost();   
     }
 
     loadItem() {
@@ -28,44 +28,51 @@ class Main extends Component {
         let itemPost = [];
         let itemIndex = 0;
         const db = firebase.database().ref('/posts').limitToFirst(this.state.itemLoad);
+        
+        db.on('value', (dataset) => {
+            dataset.forEach((data) => {
+                itemPost.push({
+                    id: data.val().postId,
+                    title: data.val().title,
+                    photoUrl: data.val().photoUrl,
+                });
+                itemIndex++;
+                if (itemIndex === 3) {
+                    _posts.push(itemPost);
+                    itemIndex = 0;
+                    itemPost = [];
+                }
+                if (data.val().postId === this.state.postId) {
+                    console.log("Last Item Added. ItemIndex: " + itemIndex);
+                    if (itemIndex === 1) {
+                        itemPost.push(null);
+                        itemPost.push(null);
+                        _posts.push(itemPost);
+                    }
+                    else if (itemIndex === 2) {
+                        itemPost.push(null);
+                        _posts.push(itemPost);
+                    }
+                    else {
+                        _posts.push(itemPost);
+                    }
+                }
+                this.setState({
+                    posts: _posts
+                })
+            })
+        });
+    }
+
+    getLastPost() {
+        const db = firebase.database().ref('/posts').limitToFirst(this.state.itemLoad);
         if (this.state.postId === null) {
             firebase.database().ref('/posts').limitToLast(1).on('child_added', (data) => {
                 this.setState({
                     postId: data.val().postId
-                })
+                }, () => this.loadItem())
             })
         }
-        db.on('child_added', (data) => {
-            itemPost.push({
-                id: data.val().postId,
-                title: data.val().title,
-                photoUrl: data.val().photoUrl,
-            });
-            itemIndex++;
-            if (itemIndex === 3) {
-                _posts.push(itemPost);
-                itemIndex = 0;
-                itemPost = [];
-            }
-            if (data.val().postId === this.state.postId) {
-                console.log("Last Item Added. ItemIndex: " + itemIndex);
-                if (itemIndex === 1) {
-                    itemPost.push(null);
-                    itemPost.push(null);
-                    _posts.push(itemPost);
-                }
-                else if (itemIndex === 2) {
-                    itemPost.push(null);
-                    _posts.push(itemPost);
-                }
-                else {
-                    _posts.push(itemPost);
-                }
-            }
-            this.setState({
-                posts: _posts
-            })
-        });
     }
 
     loadMore() {

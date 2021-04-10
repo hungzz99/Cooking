@@ -3,13 +3,10 @@ import './Details.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { MDBIcon } from "mdbreact";
-import chicken from '../../Pictures/chicken.jpg';
-import pizza from '../../Pictures/pizza.jpg';
-import spaghetti from '../../Pictures/spagheti.jpg';
-import { MDBCard, MDBCardTitle, MDBCardGroup, MDBCardImage, Link, MDBCardBody } from "mdbreact";
 import firebase from 'firebase';
 import { useParams } from 'react-router-dom';
 import Comments from '../Comments/Comment';
+import Recipe from '../Reciep/Reciep';
 
 class Details extends Component {
 
@@ -17,12 +14,13 @@ class Details extends Component {
         super();
         this.state = {
             post: {},
+            posts: []
         }
     }
 
     componentDidMount() {
-        const db = firebase.database().ref(`posts/${this.props.myHookValue}`);
-        db.once('value').then(data => {
+        const dbPost = firebase.database().ref(`posts/${this.props.myHookValue}`);
+        dbPost.on('value', (data) => {
             this.setState({
                 post: {
                     title: data.val().title,
@@ -34,9 +32,53 @@ class Details extends Component {
                 }
             })
         })
+        this.loadItem();
+    }
+
+    loadItem() {
+        let _posts = [];
+        let itemPost = [];
+        let itemIndex = 0;
+        const db = firebase.database().ref('/posts').limitToLast(9);
+
+        db.on('value', (dataset) => {
+            dataset.forEach((data) => {
+                itemPost.push({
+                    id: data.val().postId,
+                    title: data.val().title,
+                    photoUrl: data.val().photoUrl,
+                });
+                itemIndex++;
+                if (itemIndex === 3) {
+                    _posts.push(itemPost);
+                    itemIndex = 0;
+                    itemPost = [];
+                }
+                if (data.val().postId === this.state.postId) {
+                    console.log("Last Item Added. ItemIndex: " + itemIndex);
+                    if (itemIndex === 1) {
+                        itemPost.push(null);
+                        itemPost.push(null);
+                        _posts.push(itemPost);
+                    }
+                    else if (itemIndex === 2) {
+                        itemPost.push(null);
+                        _posts.push(itemPost);
+                    }
+                    else {
+                        _posts.push(itemPost);
+                    }
+                }
+                this.setState({
+                    posts: _posts
+                })
+            })
+        });
     }
 
     render() {
+        console.log(this.state.posts);
+        const recipe = this.state.posts.map(posts => <Recipe posts={posts} />);
         return (
             <div className="back-ground">
                 <Header />
@@ -101,22 +143,6 @@ class Details extends Component {
                                                 <var> Comments</var>
                                             </div>
                                             <Comments postId={this.props.myHookValue} />
-                                            {/* <div className="col-auto">
-                                                <label className="sr-only" for="inlineFormInputGroup">Comments</label>
-                                                <div className="input-group mb-2">
-                                                    <div className="input-group-prepend">
-                                                        <div className="input-group-text">
-                                                            <MDBIcon icon="user" />
-                                                        </div>
-                                                    </div>
-                                                    <input type="text" className="form-control" id="inlineFormInputGroup" placeholder="Comments....." />
-                                                    <div className="input-group-prepend">
-                                                        <div className="input-group-text">
-                                                            <MDBIcon far icon="paper-plane" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> */}
                                         </div>
                                     </div>
                                 </div>
@@ -126,74 +152,8 @@ class Details extends Component {
                 </div>
                 <hr />
                 <div className="Cardcss">
-                    <MDBCardGroup>
-                        <MDBCard >
-                            <Link to="/productid-details">
-                                <MDBCardImage src={spaghetti} alt="MDBCard image cap" top hover
-                                    overlay="white-slight" />
-                                <MDBCardBody>
-                                    <MDBCardTitle tag="h5">Spaghetti</MDBCardTitle>
-                                </MDBCardBody>
-                            </Link>
-                        </MDBCard>
-                        <MDBCard>
-                            <Link to="/productid-details">
-                                <MDBCardImage src={chicken} alt="MDBCard image cap" top hover
-                                    overlay="white-slight" />
-                                <MDBCardBody>
-                                    <MDBCardTitle tag="h5">Chicken</MDBCardTitle>
-                                </MDBCardBody>
-                            </Link>
-                        </MDBCard>
-
-                        <MDBCard>
-                            <Link to="/productid-details">
-
-                                <MDBCardImage src={pizza} alt="MDBCard image cap" top hover
-                                    overlay="white-slight" />
-                                <MDBCardBody>
-                                    <MDBCardTitle tag="h5">Pizza</MDBCardTitle>
-
-                                </MDBCardBody>
-                            </Link>
-                        </MDBCard>
-                    </MDBCardGroup>
-                    <MDBCardGroup>
-                        <MDBCard>
-                            <Link to="/productid-details">
-
-                                <MDBCardImage src={spaghetti} alt="MDBCard image cap" top hover
-                                    overlay="white-slight" />
-                                <MDBCardBody>
-                                    <MDBCardTitle tag="h5">Spaghetti</MDBCardTitle>
-
-                                </MDBCardBody>
-                            </Link>
-                        </MDBCard>
-                        <MDBCard>
-                            <Link to="/productid-details">
-
-                                <MDBCardImage src={chicken} alt="MDBCard image cap" top hover
-                                    overlay="white-slight" />
-                                <MDBCardBody>
-                                    <MDBCardTitle tag="h5">Chicken</MDBCardTitle>
-
-                                </MDBCardBody>
-                            </Link>
-                        </MDBCard>
-
-                        <MDBCard>
-                            <Link to="/productid-details">
-
-                                <MDBCardImage src={pizza} alt="MDBCard image cap" top hover
-                                    overlay="white-slight" />
-                                <MDBCardBody>
-                                    <MDBCardTitle tag="h5">Pizza</MDBCardTitle>
-
-                                </MDBCardBody>
-                            </Link>
-                        </MDBCard>
-                    </MDBCardGroup>
+                    <h3 className="media-title-h3">Recent Recipes</h3>
+                    {recipe}
                 </div>
                 <br />
                 <Footer />
