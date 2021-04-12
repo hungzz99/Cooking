@@ -9,6 +9,7 @@ import ContactUs from './components/ContactUs/ContactUs';
 import Login from './Login/Login';
 import Details from './components/Details/Details';
 import OccasionsRecipes from './components/OccasionsRecipes/OccasionsRecipes';
+import Search from './components/Search/Search';
 function App() {
 
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route  path="/contact-us" component={ContactUs} />
         <Route  path="/login" component={Login} />
         <Route  path="/productid-details/:id" component={Details}/>
+        <Route path="/search/:searchKey" component={Search} />
       </Switch>
     </Router>
   );

@@ -10,6 +10,7 @@ class AboutUs extends Component {
             <div>
                 <Header />
                 <div className="AboutUs">
+                    <div className="about-content"> 
                     <MDBCard className="face back" style={{ height: "400px" }}>
                         <MDBCardBody>
                             <h1 className="font-weight-bold">Welcome To Cookies</h1>
@@ -39,7 +40,10 @@ class AboutUs extends Component {
                             </ul>
                         </MDBCardBody>
                     </MDBCard>
+                    </div>
                 </div>
+                <br/>
+                <br/>
                 <Footer />
             </div>
         )

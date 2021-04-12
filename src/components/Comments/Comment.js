@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { MDBIcon, MDBRow, MDBInput, MDBBtn, MDBCol } from "mdbreact";
 import firebase from 'firebase';
 
 class Comment extends Component {
@@ -83,6 +82,7 @@ class Comment extends Component {
                     <div class="comment-footer">
                         <span class="comment-likes">{comment.like} <a href="" class="comment-action active"> <i class="far fa-heart"></i></a></span>
                     </div>
+
                     <hr />
                 </div>
             )

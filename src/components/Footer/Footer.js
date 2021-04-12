@@ -6,7 +6,8 @@ class Footer extends Component {
     render() {
         const bgColor1 = { backgroundColor: '#68EBF0' }
         return (
-            <div className="Footer">
+            <div>
+                <footer>
                 <MDBFooter style={bgColor1} color="white" className="font-small pt-4 mt-4">
                     <MDBContainer fluid className="text-right text-md-center">
                         <MDBRow>
@@ -31,6 +32,7 @@ class Footer extends Component {
                         </MDBContainer>
                     </div>
                 </MDBFooter>
+                </footer>
             </div>
         );
     }

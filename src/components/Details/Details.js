@@ -19,7 +19,7 @@ class Details extends Component {
     }
 
     componentDidMount() {
-        const dbPost = firebase.database().ref(`posts/${this.props.myHookValue}`);
+        const dbPost = firebase.database().ref(`posts/${this.props.postId}`);
         dbPost.on('value', (data) => {
             this.setState({
                 post: {
@@ -95,9 +95,6 @@ class Details extends Component {
                                             <div className="input-group-text" action="/like">
                                                 <MDBIcon icon="heart" />
                                             </div>
-                                            <div className="input-group-text" action="/like">
-                                                <MDBIcon icon="print" />
-                                            </div>
                                         </div>
                                     </div>
                                     <hr />
@@ -142,7 +139,7 @@ class Details extends Component {
                                                 </div>
                                                 <var> Comments</var>
                                             </div>
-                                            <Comments postId={this.props.myHookValue} />
+                                            <Comments postId={this.props.postId} />
                                         </div>
                                     </div>
                                 </div>
@@ -162,11 +159,11 @@ class Details extends Component {
     }
 }
 
-function withMyHook(Component) {
+function withDetailsHook(Component) {
     return function WrappedComponent(props) {
         const myHookValue = useParams();
-        return <Component {...props} myHookValue={myHookValue.id} />
+        return <Component {...props} postId={myHookValue.id} />
     }
 }
 
-export default withMyHook(Details);
+export default withDetailsHook(Details);
