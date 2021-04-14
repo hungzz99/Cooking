@@ -4,6 +4,11 @@
   },
   "hosting": {
     "public": "build",
+    "target": "cookies",
+    "rewrites": [ {
+      "source": "**",
+      "destination": "/index.html"
+     }],
     "ignore": [
       "firebase.json",
       "**/.*",

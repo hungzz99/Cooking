@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 import './DailyRecipes.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import DailyVideo from '../../Video/DailyVideo.mp4';
 import Recipe from '../Reciep/Reciep'
-import { MDBIcon, MDBBtn } from "mdbreact";
 import firebase from "firebase";
 import ReactPlayer from 'react-player';
 

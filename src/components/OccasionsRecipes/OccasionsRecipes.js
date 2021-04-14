@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import './OccasionsRecipes.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import EasyVideo from '../../Video/EasyVideo.mp4';
 import { MDBCard, MDBCardGroup, MDBIcon, MDBBtn } from "mdbreact";
 import firebase from "firebase";
 import Recipe from '../Reciep/Reciep'
