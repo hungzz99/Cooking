@@ -14,11 +14,37 @@ class Details extends Component {
         super();
         this.state = {
             post: {},
-            posts: []
+            posts: [],
+            postLiked: false,
         }
+        this.onClick = this.onClick.bind(this)
     }
 
     componentDidMount() {
+        this.getPost();
+        this.loadItem();
+    }
+
+    isThisPostLiked() {
+        let user = firebase.auth().currentUser;
+        if (user != null) {
+            firebase.database().ref(`/users/${user.uid}/likedPosts/${this.props.postId}`).get().then((postId) => {
+                if (postId != null) {
+                    this.setState({
+                        postLiked: true,
+                    })
+                } else {
+                    this.setState({
+                        postLiked: false,
+                    })
+                }
+            }).catch((error) => {
+                console.log(`Fail to get info! Error: ${error}`);
+            })
+        }
+    }
+
+    getPost() {
         const dbPost = firebase.database().ref(`posts/${this.props.postId}`);
         dbPost.on('value', (data) => {
             this.setState({
@@ -32,7 +58,31 @@ class Details extends Component {
                 }
             })
         })
-        this.loadItem();
+    }
+
+    onClick() {
+        const likeRef = firebase.database().ref(`posts/${this.props.postId}/like`);
+        if (this.state.postLiked) {
+            likeRef.get().then((prevLike) => {
+                likeRef.set(prevLike + 1).then(() => {
+                    // Success
+                    console.log(`Post liked!`);
+                }).catch((error) => {
+                    // Fail
+                    console.log(`Fail to like! Error: ${error}`);
+                })
+            })
+        } else {
+            likeRef.get().then((prevLike) => {
+                likeRef.set(prevLike - 1).then(() => {
+                    // Success
+                    console.log(`Post liked!`);
+                }).catch((error) => {
+                    // Fail
+                    console.log(`Fail to like! Error: ${error}`);
+                })
+            })
+        }
     }
 
     loadItem() {
@@ -93,7 +143,7 @@ class Details extends Component {
                                                 <MDBIcon fab icon="facebook-f" />
                                             </div>
                                             <div className="input-group-text" action="/like">
-                                                <MDBIcon icon="heart" />
+                                                <button><MDBIcon icon="heart" onClick={this.onClick} /></button>
                                             </div>
                                         </div>
                                     </div>

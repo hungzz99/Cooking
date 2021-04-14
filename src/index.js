@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Router } from "react-router";
 import firebase from "firebase";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -23,7 +22,7 @@ firebase.initializeApp(firebaseConfig);
 if (window.location.hostname === 'localhost') {
   firebase.auth().useEmulator('http://localhost:9099');
   firebase.database().useEmulator("localhost", 9000);
-  firebase.functions.useEmulator('localhost', 5001)
+  firebase.functions().useEmulator('localhost', 5001)
 }
 
 ReactDOM.render(

@@ -9,7 +9,8 @@ class Comment extends Component {
             comments: [],
             comment: {},
             commentContent: "",
-            userId: {}
+            userId: {},
+            isSignedIn: false,
         };
         this.handleComment = this.handleComment.bind(this);
         this.handleCommentChange = this.handleCommentChange.bind(this);
@@ -19,26 +20,38 @@ class Comment extends Component {
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 const user = firebase.auth().currentUser
-                this.setState({ userId: user.uid })
+                this.setState({
+                    userId: user.uid,
+                    isSignedIn: true,
+                })
+            } else {
+                this.setState({
+                    isSignedIn: false
+                })
             }
         });
         this.getComments();
     }
 
     getComments() {
-        const commentRef = firebase.database().ref('comments');
+        const commentRef = firebase.database().ref(`comments`);
+        const userRef = firebase.database().ref(`/users`);
         commentRef.orderByChild('postId').equalTo(this.props.postId).on('value', snapshots => {
             let comments = [];
             snapshots.forEach(comment => {
-                comments.push({
-                    commentId: comment.val().commentId,
-                    content: comment.val().content,
-                    like: comment.val().like,
-                    userId: comment.val().userId,
-                });
-                this.setState({
-                    comments: comments
+                userRef.child(`${comment.val().userId}/name`).get().then((userName) => {
+                    comments.push({
+                        commentId: comment.val().commentId,
+                        content: comment.val().content,
+                        like: comment.val().like,
+                        userId: comment.val().userId,
+                        userName: userName.val()
+                    });
+                    this.setState({
+                        comments: comments
+                    })
                 })
+                
             })
         })
     }
@@ -75,18 +88,23 @@ class Comment extends Component {
         const comments = this.state.comments.map(comment => {
             return (
                 <div class="comment-content">
-                    <div class="commenter-head"><span class="commenter-name"><a href="" >{comment.userId}</a></span></div>
+                    <div class="commenter-head"><span class="commenter-name"><a href="" >{comment.userName}</a></span></div>
                     <div class="comment-body">
                         <span class="comment">{comment.content}</span>
                     </div>
-                    <div class="comment-footer">
-                        <span class="comment-likes">{comment.like} <a href="" class="comment-action active"> <i class="far fa-heart"></i></a></span>
-                    </div>
-
                     <hr />
                 </div>
             )
         })
+        const inputCommentField = (this.state.isSignedIn) ? 
+            <form class="reply-form">
+                <div id="div_id_username" class="form-group required">
+                    <div class="controls form-group d-flex w-100 ">
+                        <input class="input-md  textinput textInput form-control" id="id_username" value={this.state.commentContent} placeholder="Write for something..." onChange={this.handleCommentChange} type="text" />
+                        <button class="btn btn-info border-radius-0  m-0 w-25" onClick={this.handleComment} >POST</button>
+                    </div>
+                </div>
+            </form> : <></>
         return (
             <>
                 <div className="comment">
@@ -97,14 +115,7 @@ class Comment extends Component {
                             </div>
                         </div>
                         <hr />
-                        <form class="reply-form">
-                            <div id="div_id_username" class="form-group required">
-                                <div class="controls form-group d-flex w-100 ">
-                                    <input class="input-md  textinput textInput form-control" id="id_username" value={this.state.commentContent} placeholder="Write for something..." onChange={this.handleCommentChange} type="text" />
-                                    <button class="btn btn-info border-radius-0  m-0 w-25" onClick={this.handleComment} >POST</button>
-                                </div>
-                            </div>
-                        </form>
+                        {inputCommentField}
                     </div>
                 </div>
             </>
