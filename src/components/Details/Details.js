@@ -7,20 +7,30 @@ import firebase from 'firebase';
 import { useParams } from 'react-router-dom';
 import Comments from '../Comments/Comment';
 import Recipe from '../Reciep/Reciep';
+import { FacebookShareButton } from "react-share";
 
 class Details extends Component {
 
     constructor(props) {
         super();
         this.state = {
+            isSignedIn: false,
             post: {},
             posts: [],
             postLiked: false,
         }
-        this.onClick = this.onClick.bind(this)
+        this.onClick = this.onClick.bind(this);
     }
 
     componentDidMount() {
+        firebase.auth().onAuthStateChanged(user => {
+            if (user !== null) {
+                this.setState({ isSignedIn: true });
+                this.isThisPostLiked()
+            } else {
+                this.setState({ isSignedIn: false })
+            }
+        });
         this.getPost();
         this.loadItem();
     }
@@ -29,7 +39,7 @@ class Details extends Component {
         let user = firebase.auth().currentUser;
         if (user != null) {
             firebase.database().ref(`/users/${user.uid}/likedPosts/${this.props.postId}`).get().then((postId) => {
-                if (postId != null) {
+                if (postId.val() != null) {
                     this.setState({
                         postLiked: true,
                     })
@@ -45,6 +55,7 @@ class Details extends Component {
     }
 
     getPost() {
+        console.log(this.state.postLiked);
         const dbPost = firebase.database().ref(`posts/${this.props.postId}`);
         dbPost.on('value', (data) => {
             this.setState({
@@ -55,16 +66,21 @@ class Details extends Component {
                     people: data.val().people,
                     preparation: data.val().preparation,
                     time: data.val().time,
+                    like: data.val().like
                 }
             })
         })
     }
 
-    onClick() {
+    onClick(e) {
+        e.preventDefault();
+        const user = firebase.auth().currentUser;
         const likeRef = firebase.database().ref(`posts/${this.props.postId}/like`);
-        if (this.state.postLiked) {
+        if (!this.state.postLiked) {
             likeRef.get().then((prevLike) => {
-                likeRef.set(prevLike + 1).then(() => {
+                likeRef.set(prevLike.val() + 1).then(() => {
+                    firebase.database().ref(`users/${user.uid}/likedPosts/${this.props.postId}`).set(true)
+                    this.isThisPostLiked();
                     // Success
                     console.log(`Post liked!`);
                 }).catch((error) => {
@@ -74,15 +90,18 @@ class Details extends Component {
             })
         } else {
             likeRef.get().then((prevLike) => {
-                likeRef.set(prevLike - 1).then(() => {
+                likeRef.set(prevLike.val() - 1).then(() => {
+                    firebase.database().ref(`users/${user.uid}/likedPosts/${this.props.postId}`).remove()
+                    this.isThisPostLiked();
                     // Success
-                    console.log(`Post liked!`);
+                    console.log(`Post unliked!`);
                 }).catch((error) => {
                     // Fail
                     console.log(`Fail to like! Error: ${error}`);
                 })
             })
         }
+
     }
 
     loadItem() {
@@ -129,6 +148,7 @@ class Details extends Component {
     render() {
         console.log(this.state.posts);
         const recipe = this.state.posts.map(posts => <Recipe posts={posts} />);
+        const likeIcon = (this.state.postLiked) ? <MDBIcon icon="heart" /> : <MDBIcon far icon="heart" />
         return (
             <div className="back-ground">
                 <Header />
@@ -140,10 +160,15 @@ class Details extends Component {
                                     <div className="header-details">
                                         <div className="input-group-prepend">
                                             <div className="input-group-text">
-                                                <MDBIcon fab icon="facebook-f" />
+                                                <FacebookShareButton url={window.location.href} hashtag="cookies">
+                                                    <MDBIcon fab icon="facebook-f" />
+                                                </FacebookShareButton>
                                             </div>
-                                            <div className="input-group-text" action="/like">
-                                                <button><MDBIcon icon="heart" onClick={this.onClick} /></button>
+                                            <div className="input-group-text">
+                                                <button disabled={!this.state.isSignedIn} className="Button-background" onClick={this.onClick}>{likeIcon}</button>
+                                            </div>
+                                            <div className="input-group-text">
+                                                <var> {this.state.post.like} </var>
                                             </div>
                                         </div>
                                     </div>

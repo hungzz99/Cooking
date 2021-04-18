@@ -66,3 +66,12 @@
 .input-group-prepend {
     white-space: pre-line;
 }
+.Button-background {
+    border: none;
+    background-color: #ffffff;
+}
+.Button-background:hover {
+    border: none;
+    background-color: #ffffff;
+}
+
