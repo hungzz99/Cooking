@@ -1,122 +1,63 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import firebase from 'firebase';
-
+import deletecomment from '../../Pictures/cancel.png';
+import './Comment.css';
 class Comment extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            comments: [],
             comment: {},
-            commentContent: "",
-            userId: {},
-            isSignedIn: false,
+            admin: false
         };
-        this.handleComment = this.handleComment.bind(this);
-        this.handleCommentChange = this.handleCommentChange.bind(this);
+        this.onClickDelete = this.onClickDelete.bind(this);
     }
 
     componentDidMount() {
-        firebase.auth().onAuthStateChanged(user => {
-            if (user) {
-                const user = firebase.auth().currentUser
+        const currentUser = firebase.auth().currentUser
+        if (currentUser != null) {
+            firebase.database().ref(`users/${currentUser.uid}/admin`).get().then((admin) => {
                 this.setState({
-                    userId: user.uid,
-                    isSignedIn: true,
+                    admin: admin.val()
                 })
-            } else {
-                this.setState({
-                    isSignedIn: false
-                })
-            }
-        });
-        this.getComments();
+            })
+        }
     }
 
-    getComments() {
-        const commentRef = firebase.database().ref(`comments`);
-        const userRef = firebase.database().ref(`/users`);
-        commentRef.orderByChild('postId').equalTo(this.props.postId).on('value', snapshots => {
-            let comments = [];
-            snapshots.forEach(comment => {
-                userRef.child(`${comment.val().userId}/name`).get().then((userName) => {
-                    comments.push({
-                        commentId: comment.val().commentId,
-                        content: comment.val().content,
-                        like: comment.val().like,
-                        userId: comment.val().userId,
-                        userName: userName.val()
-                    });
-                    this.setState({
-                        comments: comments
-                    })
-                })
-                
-            })
+    deleteComments() {
+        firebase.database().ref(`comments/${this.props.comment.commentId}`).remove().then(() => {
+            window.alert("Delete comment success!");
+        }).catch((error) => {
+            window.alert(`Fail to delete comment, error: ${error}!`)
         })
     }
 
-    pushComment() {
-        const commentRef = firebase.database().ref('comments');
-        const pushComment = commentRef.push();
-        const id = pushComment.key;
-        const commentContent = this.state.commentContent;
-        console.log(this.state.commentContent);
-        this.setState({
-            comment: {
-                commentId: id,
-                content: commentContent,
-                like: 0,
-                postId: this.props.postId,
-                userId: this.state.userId,
-            }
-        }, () => pushComment.set(this.state.comment))
-    }
-
-    handleCommentChange(event) {
-        this.setState({ commentContent: event.target.value });
-    }
-
-    handleComment(e) {
+    onClickDelete(e) {
         e.preventDefault();
-        this.pushComment();
-        this.setState({ commentContent: "" });
-    }
 
+        this.deleteComments();
+    }
 
     render() {
-        const comments = this.state.comments.map(comment => {
-            return (
-                <div class="comment-content">
-                    <div class="commenter-head"><span class="commenter-name"><a href="" >{comment.userName}</a></span></div>
-                    <div class="comment-body">
-                        <span class="comment">{comment.content}</span>
-                    </div>
-                    <hr />
-                </div>
-            )
-        })
-        const inputCommentField = (this.state.isSignedIn) ? 
-            <form class="reply-form">
-                <div id="div_id_username" class="form-group required">
-                    <div class="controls form-group d-flex w-100 ">
-                        <input class="input-md  textinput textInput form-control" id="id_username" value={this.state.commentContent} placeholder="Write for something..." onChange={this.handleCommentChange} type="text" />
-                        <button class="btn btn-info border-radius-0  m-0 w-25" onClick={this.handleComment} >POST</button>
-                    </div>
-                </div>
-            </form> : <></>
+        const user = firebase.auth().currentUser;
+        const checkComments = (this.state.admin) ? (true) : ((user != null && user.uid === this.props.comment.userId) ? (true) : (false));
+        const showingbutton = (checkComments) ?
+            (<button onClick={this.onClickDelete} className="Button-background">
+                <img className="delete-comments" src={deletecomment} height="12px" width="12px" />
+            </button>) : <></>
         return (
             <>
-                <div className="comment">
-                    <div class="col-md-12">
-                        <div class="comment-box-wrapper">
-                            <div class="comment-box">
-                                {comments}
-                            </div>
+                <div class="comment-content">
+                    <div className="input-group-text">
+                        <div class="commenter-head"><span class="commenter-name"><a href="" >{this.props.comment.userName}: </a></span></div>
+                        <div class="comment-body">
+
+                            <span class="comment">{this.props.comment.content}
+                                {showingbutton}
+                            </span>
                         </div>
-                        <hr />
-                        {inputCommentField}
                     </div>
+                    <hr />
                 </div>
             </>
         )

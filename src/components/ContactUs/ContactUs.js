@@ -32,7 +32,7 @@ class ContactUs extends Component {
                                         </h5>
                                         <br/>
                                         <h4 className="mt-2">
-                                            Contact Person: Mr. Trinh Thai Binh
+                                            Contact Person: Mr. Le Thanh Hung
                                         </h4>
                                         <h5 className="mt-2">
                                         <MDBIcon icon="user-cog" /> Head of Global Marketing & Communication

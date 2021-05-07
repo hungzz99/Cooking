@@ -18,14 +18,23 @@ class Details extends Component {
             post: {},
             posts: [],
             postLiked: false,
+            comments: [],
+            comment: {},
+            commentContent: "",
+            userId: {}
         }
         this.onClick = this.onClick.bind(this);
+        this.handleComment = this.handleComment.bind(this);
+        this.handleCommentChange = this.handleCommentChange.bind(this);
     }
 
     componentDidMount() {
         firebase.auth().onAuthStateChanged(user => {
             if (user !== null) {
-                this.setState({ isSignedIn: true });
+                this.setState({ 
+                    isSignedIn: true,
+                    userId: user.uid
+                });
                 this.isThisPostLiked()
             } else {
                 this.setState({ isSignedIn: false })
@@ -33,6 +42,7 @@ class Details extends Component {
         });
         this.getPost();
         this.loadItem();
+        this.getComments();
     }
 
     isThisPostLiked() {
@@ -145,10 +155,69 @@ class Details extends Component {
         });
     }
 
+    getComments() {
+        const commentRef = firebase.database().ref(`comments`);
+        const userRef = firebase.database().ref(`/users`);
+        commentRef.orderByChild('postId').equalTo(this.props.postId).on('value', snapshots => {
+            let comments = [];
+            snapshots.forEach(comment => {
+                userRef.child(`${comment.val().userId}/name`).get().then((userName) => {
+                    comments.push({
+                        commentId: comment.val().commentId,
+                        content: comment.val().content,
+                        like: comment.val().like,
+                        userId: comment.val().userId,
+                        userName: userName.val()
+                    });
+                    this.setState({
+                        comments: comments
+                    })
+                })
+
+            })
+        })
+    }
+
+    handleCommentChange(event) {
+        this.setState({ commentContent: event.target.value });
+    }
+
+    handleComment(e) {
+        e.preventDefault();
+        this.pushComment();
+        this.setState({ commentContent: "" });
+    }
+
+    pushComment() {
+        const commentRef = firebase.database().ref('comments');
+        const pushComment = commentRef.push();
+        const id = pushComment.key;
+        const commentContent = this.state.commentContent;
+        console.log(this.state.commentContent);
+        this.setState({
+            comment: {
+                commentId: id,
+                content: commentContent,
+                like: 0,
+                postId: this.props.postId,
+                userId: this.state.userId,
+            }
+        }, () => pushComment.set(this.state.comment))
+    }
+
     render() {
-        console.log(this.state.posts);
-        const recipe = this.state.posts.map(posts => <Recipe posts={posts} />);
-        const likeIcon = (this.state.postLiked) ? <MDBIcon icon="heart" /> : <MDBIcon far icon="heart" />
+        const recipe = this.state.posts.map(posts => <Recipe key={posts.postId} posts={posts} />);
+        const likeIcon = (this.state.postLiked) ? <MDBIcon icon="heart" /> : <MDBIcon far icon="heart" />;
+        const comments = this.state.comments.map(comment => <Comments key={comment.commentId} comment={comment} />);
+        const inputCommentField = (this.state.isSignedIn) ?
+            <form class="reply-form">
+                <div id="div_id_username" class="form-group required">
+                    <div class="controls form-group d-flex w-100 ">
+                        <input class="input-md  textinput textInput form-control" id="id_username" value={this.state.commentContent} placeholder="Write for something..." onChange={this.handleCommentChange} type="text" />
+                        <button class="btn btn-info border-radius-0  m-0 w-25" onClick={this.handleComment} >POST</button>
+                    </div>
+                </div>
+            </form> : <></>
         return (
             <div className="back-ground">
                 <Header />
@@ -214,7 +283,17 @@ class Details extends Component {
                                                 </div>
                                                 <var> Comments</var>
                                             </div>
-                                            <Comments postId={this.props.postId} />
+                                            <div className="comment">
+                                                <div class="col-md-12">
+                                                    <div class="comment-box-wrapper">
+                                                        <div class="comment-box">
+                                                            {comments}
+                                                        </div>
+                                                    </div>
+                                                    <hr />
+                                                    {inputCommentField}
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
